@@ -4,24 +4,36 @@ import { useEffect, useState } from 'react';
  * Visit counter.
  *
  * Tries POST /api/visits (see api/visits.js + Upstash in production).
- * If that fails (local dev), counts in this browser via localStorage.
+ * If that fails (local dev and GitHub Pages), counts in this browser
+ * via localStorage. That value survives deploys and code edits.
  *
- * You usually do not need to edit this file. To change the label, edit
- * the JSX at the bottom. To change the look, edit .visits in src/index.css.
+ * A visit is counted once per full page load. Hot reload and React
+ * StrictMode remounts do not add extra visits or reset the number.
  */
 const LOCAL_STORAGE_KEY = 'portfolio-visit-count';
 
-function getLocalVisitCount() {
+function readStoredCount() {
   const storedValue = window.localStorage.getItem(LOCAL_STORAGE_KEY);
   const currentCount = Number.parseInt(storedValue ?? '0', 10);
-  const nextCount = Number.isNaN(currentCount) ? 1 : currentCount + 1;
+  return Number.isNaN(currentCount) ? 0 : currentCount;
+}
 
+function incrementLocalVisitCount() {
+  if (window.__portfolioVisitCounted) {
+    return readStoredCount();
+  }
+
+  window.__portfolioVisitCounted = true;
+  const nextCount = readStoredCount() + 1;
   window.localStorage.setItem(LOCAL_STORAGE_KEY, String(nextCount));
   return nextCount;
 }
 
 const VisitCounter = () => {
-  const [visitCount, setVisitCount] = useState(null);
+  const [visitCount, setVisitCount] = useState(() => {
+    const stored = readStoredCount();
+    return stored > 0 ? stored : null;
+  });
   const [usingFallback, setUsingFallback] = useState(false);
 
   useEffect(() => {
@@ -48,7 +60,7 @@ const VisitCounter = () => {
       } catch {
         if (!isMounted) return;
         setUsingFallback(true);
-        setVisitCount(getLocalVisitCount());
+        setVisitCount(incrementLocalVisitCount());
       }
     }
 
