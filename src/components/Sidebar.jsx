@@ -2,6 +2,21 @@ import { useEffect, useRef, useState } from 'react';
 import { FileText, Github, GraduationCap, ImagePlus, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
 import { site } from '../data/site';
 
+/**
+ * Left identity rail: photo, name, role, status, contact list.
+ *
+ * Profile photo: put the file in public/ as headshot.jpg
+ *   (or headshot.jpeg / headshot.png / headshot.webp). No code change.
+ *   Drag-and-drop on the square is a temporary preview only.
+ *
+ * Resume: put the file in public/ as cv.pdf. The CV row in site.contacts
+ *   already links to /cv.pdf.
+ *
+ * Name, role, and links: src/data/site.js
+ *
+ * New contact icon: import the Lucide icon, add it to `icons` below,
+ * then use that key as icon: 'yourkey' in site.contacts.
+ */
 const icons = {
   map: MapPin,
   mail: Mail,
@@ -12,19 +27,51 @@ const icons = {
   cv: FileText,
 };
 
+const HEADSHOT_PATHS = [
+  '/headshot.jpg',
+  '/headshot.jpeg',
+  '/headshot.png',
+  '/headshot.webp',
+];
+
+function imageExists(src) {
+  return new Promise((resolve) => {
+    const image = new Image();
+    image.onload = () => resolve(true);
+    image.onerror = () => resolve(false);
+    image.src = src;
+  });
+}
+
 const Sidebar = () => {
   const objectUrl = useRef(null);
+  const userPicked = useRef(false);
   const [photo, setPhoto] = useState(null);
   const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
+    let cancelled = false;
+
+    async function loadHeadshot() {
+      for (const src of HEADSHOT_PATHS) {
+        if (await imageExists(src)) {
+          if (!cancelled && !userPicked.current) setPhoto(src);
+          return;
+        }
+      }
+    }
+
+    loadHeadshot();
+
     return () => {
+      cancelled = true;
       if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
     };
   }, []);
 
   function setFile(file) {
     if (!file || !file.type.startsWith('image/')) return;
+    userPicked.current = true;
     if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
     objectUrl.current = URL.createObjectURL(file);
     setPhoto(objectUrl.current);
