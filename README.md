@@ -2,7 +2,7 @@
 
 Academic homepage. CS MS at Yale, seeking a PhD for Fall 2026.
 
-**[Live site](https://biniyamlombe.github.io/portfolio/)**
+**[Live site](https://biniyamlombe.github.io/)**
 
 ## Local
 

@@ -19,7 +19,7 @@
  *   change that call to publicFile('resume.pdf').
  */
 
-/** Files in public/. Keeps /portfolio/ working on GitHub Pages. */
+/** Files in public/. Uses Vite BASE_URL so local and GitHub Pages stay in sync. */
 export function publicFile(name) {
   return `${import.meta.env.BASE_URL}${String(name).replace(/^\//, '')}`;
 }
