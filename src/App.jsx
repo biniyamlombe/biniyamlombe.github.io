@@ -5,6 +5,13 @@ import Publications from './components/Publications';
 import News from './components/News';
 import Footer from './components/Footer';
 
+/**
+ * Page shell. Section order on the page is the order of components below:
+ * About (Hero) → Interests (Research) → News → Publications.
+ *
+ * To add a section: create src/components/YourSection.jsx, import it here,
+ * and place it in the content column. Then add styles in src/index.css.
+ */
 function App() {
   return (
     <div className="site">
@@ -15,8 +22,8 @@ function App() {
         <div className="content" id="content">
           <Hero />
           <Research />
-          <Publications />
           <News />
+          <Publications />
         </div>
       </div>
       <Footer />
