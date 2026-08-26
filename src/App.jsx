@@ -1,13 +1,16 @@
 import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import Research from './components/Research';
+import Projects from './components/Projects';
 import Publications from './components/Publications';
 import News from './components/News';
 import Footer from './components/Footer';
 
 /**
  * Page shell. Section order on the page is the order of components below:
- * About (Hero) → Interests (Research) → News → Publications.
+ * About → Interests → Selected work → Publications → News.
+ *
+ * That order is meant for both PhD committees and SWE / ML hiring.
  *
  * To add a section: create src/components/YourSection.jsx, import it here,
  * and place it in the content column. Then add styles in src/index.css.
@@ -22,8 +25,9 @@ function App() {
         <div className="content" id="content">
           <Hero />
           <Research />
-          <News />
+          <Projects />
           <Publications />
+          <News />
         </div>
       </div>
       <Footer />
