@@ -1,6 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { publications, scholarHref, site } from '../data/site';
 
+/**
+ * Publications list. Add papers in src/data/site.js (`publications`).
+ * This file only renders them. Empty array → Scholar fallback text below.
+ * Years are sorted newest first here; you do not need to sort the data file.
+ */
 function authorName(name) {
   const isSelf = name === site.name || name === site.shortName;
   return isSelf ? <strong key={name}>{name}</strong> : name;
@@ -41,40 +46,42 @@ const Publications = () => {
           </p>
         ) : (
           <ol className="pub-list">
-            {publications.map((paper) => {
-              const TitleTag = paper.href ? 'a' : 'span';
-              return (
-                <li key={`${paper.title}-${paper.year}`}>
-                  {formatAuthors(paper.authors)}.
-                  {' '}
-                  <TitleTag
-                    className="pub-title"
-                    {...(paper.href
-                      ? { href: paper.href, target: '_blank', rel: 'noopener noreferrer' }
-                      : {})}
-                  >
-                    {paper.title}
-                  </TitleTag>
-                  .{' '}
-                  <span className="pub-venue">{paper.venue}</span>
-                  , {paper.year}.
-                  {paper.links?.length > 0 && (
-                    <span className="pub-links">
-                      {paper.links.map((link) => (
-                        <a
-                          key={link.label}
-                          href={link.href}
-                          target={link.href.startsWith('http') ? '_blank' : undefined}
-                          rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                        >
-                          {link.label}
-                        </a>
-                      ))}
-                    </span>
-                  )}
-                </li>
-              );
-            })}
+            {[...publications]
+              .sort((a, b) => Number(b.year) - Number(a.year))
+              .map((paper) => {
+                const TitleTag = paper.href ? 'a' : 'span';
+                return (
+                  <li key={`${paper.title}-${paper.year}`}>
+                    {formatAuthors(paper.authors)}.
+                    {' '}
+                    <TitleTag
+                      className="pub-title"
+                      {...(paper.href
+                        ? { href: paper.href, target: '_blank', rel: 'noopener noreferrer' }
+                        : {})}
+                    >
+                      {paper.title}
+                    </TitleTag>
+                    .{' '}
+                    <span className="pub-venue">{paper.venue}</span>
+                    , {paper.year}.
+                    {paper.links?.length > 0 && (
+                      <span className="pub-links">
+                        {paper.links.map((link) => (
+                          <a
+                            key={link.label}
+                            href={link.href}
+                            target={link.href.startsWith('http') ? '_blank' : undefined}
+                            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
           </ol>
         )}
       </motion.div>
