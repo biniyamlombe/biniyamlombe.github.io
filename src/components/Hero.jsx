@@ -22,7 +22,7 @@ const Hero = () => {
             I am a computer scientist at <a href={site.schoolHref} target="_blank" rel="noopener noreferrer">{site.school}</a>, where I recently completed an {site.degree}. I work on machine learning that is capable and <em>trustworthy</em>: models that understand language and vision while protecting the people whose data trains them.
           </p>
           <p>
-            I am applying to PhD programs, with a focus on natural language processing, computer vision, privacy-preserving ML, and ML security. The fastest way to reach me is by <a href={`mailto:${site.email}`}>email</a>.
+            I am applying to CS PhD programs for Fall 2026, and I am looking at software engineering and machine learning roles. The fastest way to reach me is by <a href={`mailto:${site.email}`}>email</a>.
           </p>
         </div>
       </motion.div>

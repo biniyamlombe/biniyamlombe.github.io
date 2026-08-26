@@ -4,7 +4,7 @@
  * Change copy and links here first. Save the file; the local site should refresh.
  * Full walkthrough: README.md
  *
- * Do not invent papers. Add a publication only when you have a real title and venue.
+ * Do not invent papers or projects. Add an item only when you have a real title and link.
  *
  * PROFILE PHOTO
  *   Save your picture as:  public/headshot.jpg
@@ -34,7 +34,7 @@ export const site = {
   email: 'biniyam.lombe@yale.edu',
   location: 'New Haven, CT',
   mapsUrl: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9',
-  availability: 'Seeking PhD, Fall 2026',
+  availability: 'Open to PhD and SWE / ML roles',
   schoolHref: 'https://www.cs.yale.edu/',
   /**
    * Left-rail links. Add a row by copying an object below.
@@ -50,15 +50,35 @@ export const site = {
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
-    { name: 'CV', href: publicFile('cv.pdf'), icon: 'cv' },
+    { name: 'CV / Resume', href: publicFile('cv.pdf'), icon: 'cv' },
   ],
 };
 
 export const scholarHref = site.contacts.find((item) => item.icon === 'scholar')?.href;
+export const githubHref = site.contacts.find((item) => item.icon === 'github')?.href;
 
 /** Interests paragraph. Replace this string to change that section. */
 export const interestsCopy =
-  'I am interested in natural language processing, computer vision, privacy-preserving machine learning, and ML security. That includes language models and multilingual understanding, visual representation learning, differential privacy and federated learning, and adversarial robustness.';
+  'I work across natural language processing, computer vision, privacy-preserving machine learning, and ML security. That includes language models, multilingual understanding, visual representation learning, differential privacy, federated learning, and adversarial robustness. I also care about turning that research into software that holds up: training pipelines, evaluation, and systems people can actually run.';
+
+/**
+ * SELECTED WORK
+ *
+ * Add objects to this array for SWE / ML hiring. Do not invent projects.
+ * If the array stays empty, the page shows a GitHub fallback instead.
+ *
+ * {
+ *   title: 'Project name',
+ *   blurb: 'One or two sentences on what it does and your role.',
+ *   stack: ['PyTorch', 'React'],
+ *   href: 'https://github.com/biniyamlombe/your-repo',
+ *   links: [
+ *     { label: 'Code', href: 'https://github.com/biniyamlombe/your-repo' },
+ *     { label: 'Live', href: 'https://your-demo.example' },
+ *   ],
+ * }
+ */
+export const projects = [];
 
 /**
  * PUBLICATIONS
@@ -112,7 +132,7 @@ export const news = [
   {
     date: 'Aug 2026',
     parts: [
-      { text: 'Applying to CS PhD programs. Happy to talk about trustworthy ML, privacy, and security.' },
+      { text: 'Applying to CS PhD programs and SWE / ML roles. Happy to talk about trustworthy ML, privacy, and security.' },
     ],
     notes: [
       'Interests: language models, vision, differential privacy, and adversarial robustness.',
