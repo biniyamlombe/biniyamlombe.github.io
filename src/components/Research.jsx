@@ -3,7 +3,7 @@ import { interestsCopy } from '../data/site';
 
 /**
  * Interests section. Change the paragraph in src/data/site.js (`interestsCopy`).
- * Change the heading text here if you want a different title (e.g. Research).
+ * Heading stays "Interests" so it reads for both research and applied work.
  */
 const Research = () => {
   const reduce = useReducedMotion();

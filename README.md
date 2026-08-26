@@ -1,6 +1,6 @@
 # Biniyam Lombe
 
-Academic homepage. CS MS at Yale, seeking a PhD for Fall 2026.
+Academic homepage for PhD and SWE / ML applications. CS MS at Yale.
 
 **[Live site](https://biniyamlombe.github.io/)**
 
@@ -17,14 +17,14 @@ Open [http://localhost:5173](http://localhost:5173). That port is fixed; stop an
 
 Most copy lives in [`src/data/site.js`](src/data/site.js). Save the file and the page reloads.
 
-- **Name, links, interests, news, papers:** [`src/data/site.js`](src/data/site.js)
+- **Name, links, interests, news, papers, selected work:** [`src/data/site.js`](src/data/site.js)
 - **About:** [`src/components/Hero.jsx`](src/components/Hero.jsx)
 - **Colors and layout:** [`src/index.css`](src/index.css)
 - **Tab title:** [`index.html`](index.html)
 - **Photo:** `public/headshot.jpg`
 - **Resume:** `public/cv.pdf`
 
-Comments in `site.js` show how to add a paper or a news item. Hosted PDFs go in `public/papers/`.
+Comments in `site.js` show how to add a paper, a project, or a news item. Hosted PDFs go in `public/papers/`.
 
 Drag-and-drop on the photo square is a local preview only. It is not saved.
 
