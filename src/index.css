@@ -1,15 +1,30 @@
+/**
+ * All visual styles for the site. There is no Tailwind or CSS-in-JS.
+ *
+ * Change colors in :root below. --surface is the page background (white).
+ * --accent is links, dates, and icons (terracotta).
+ *
+ * Layout pieces:
+ *   .page / .rail / .content   two-column shell
+ *   .headshot                  photo box
+ *   .about / .section          right-column sections
+ *   .news-feed / .pub-list     lists
+ *   .colophon                  footer pill (white)
+ *
+ * After adding a new section in App.jsx, add a class here rather than inline styles.
+ */
 @import '@fontsource-variable/outfit';
 @import '@fontsource-variable/newsreader';
 @import '@fontsource-variable/newsreader/wght-italic.css';
 
 :root {
-  --surface: #f7f6f2;
-  --surface-2: #eceae4;
+  --surface: #ffffff;
+  --surface-2: #f3f3f3;
   --text: #171615;
   --text-muted: #5c5853;
   --text-faint: #8a8580;
   --accent: #9b3d32;
-  --accent-soft: #f3e4dc;
+  --accent-soft: #f6e8e2;
   --line: rgba(23, 22, 21, 0.12);
   --line-strong: rgba(23, 22, 21, 0.2);
   --focus: #9b3d32;
@@ -127,7 +142,7 @@ input {
   inset: 0;
   z-index: var(--z-grain);
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.02;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
   mix-blend-mode: multiply;
 }
@@ -439,15 +454,15 @@ input {
   align-items: center;
   gap: 0.95rem;
   padding: 0.62rem 1.15rem 0.62rem 1.05rem;
-  background: color-mix(in srgb, var(--accent-soft) 55%, var(--surface));
-  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 16%, transparent);
+  background: #fff;
+  box-shadow: inset 0 0 0 1px var(--line);
   border-radius: var(--radius-pill);
 }
 
 .footer-rule {
   width: 1px;
   height: 1.05rem;
-  background: color-mix(in srgb, var(--accent) 28%, transparent);
+  background: var(--line-strong);
 }
 
 .copyright {
