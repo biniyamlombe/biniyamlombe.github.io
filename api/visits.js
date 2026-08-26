@@ -1,3 +1,17 @@
+/**
+ * Production visit counter (Vercel serverless).
+ *
+ * Local `npm run dev` does not run this file. The footer then uses localStorage.
+ *
+ * To enable a global count on Vercel:
+ *   1. Create an Upstash Redis database.
+ *   2. In the Vercel project, set:
+ *        UPSTASH_REDIS_REST_URL
+ *        UPSTASH_REDIS_REST_TOKEN
+ *   3. Redeploy.
+ *
+ * COUNTER_KEY is the Redis key. Change it only if you want to reset the count.
+ */
 const COUNTER_KEY = 'portfolio:visits';
 
 async function incrementRemoteCounter() {

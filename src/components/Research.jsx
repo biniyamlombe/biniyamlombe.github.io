@@ -1,6 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { interestsCopy } from '../data/site';
 
+/**
+ * Interests section. Change the paragraph in src/data/site.js (`interestsCopy`).
+ * Change the heading text here if you want a different title (e.g. Research).
+ */
 const Research = () => {
   const reduce = useReducedMotion();
 

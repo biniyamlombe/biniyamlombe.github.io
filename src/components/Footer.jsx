@@ -1,6 +1,12 @@
 import { site } from '../data/site';
 import VisitCounter from './VisitCounter';
 
+/**
+ * Footer: visit count + name and year.
+ * Name comes from site.name. Year is the current calendar year.
+ * Visit count UI: VisitCounter.jsx. Production backend: api/visits.js.
+ * Colors for this pill: .colophon in src/index.css
+ */
 const Footer = () => {
   return (
     <footer className="site-footer">

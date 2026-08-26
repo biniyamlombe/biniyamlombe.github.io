@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
+// Lint config. Run with `npm run lint`. You rarely need to change this.
 export default defineConfig([
   globalIgnores(['dist', '.playwright-cli']),
   {

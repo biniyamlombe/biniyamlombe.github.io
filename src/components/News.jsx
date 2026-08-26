@@ -1,6 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { news } from '../data/site';
 
+/**
+ * News list. Add or reorder items in src/data/site.js (`news`).
+ * Keep newest entries first in that array.
+ */
 const News = () => {
   const reduce = useReducedMotion();
 

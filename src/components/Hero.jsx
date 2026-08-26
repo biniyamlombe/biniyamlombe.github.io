@@ -1,6 +1,11 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 
+/**
+ * About section. Edit the two paragraphs below.
+ * School name, degree, and email are pulled from src/data/site.js
+ * (site.school, site.schoolHref, site.degree, site.email).
+ */
 const Hero = () => {
   const reduce = useReducedMotion();
 

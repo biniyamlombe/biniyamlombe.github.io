@@ -1,5 +1,14 @@
 import { useEffect, useState } from 'react';
 
+/**
+ * Visit counter.
+ *
+ * Tries POST /api/visits (see api/visits.js + Upstash in production).
+ * If that fails (local dev), counts in this browser via localStorage.
+ *
+ * You usually do not need to edit this file. To change the label, edit
+ * the JSX at the bottom. To change the look, edit .visits in src/index.css.
+ */
 const LOCAL_STORAGE_KEY = 'portfolio-visit-count';
 
 function getLocalVisitCount() {
