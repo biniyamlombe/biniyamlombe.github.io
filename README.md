@@ -111,7 +111,7 @@ export const publications = [
     year: 2026,
     href: 'https://arxiv.org/abs/0000.00000',
     links: [
-      { label: 'PDF', href: '/papers/example.pdf' },
+      { label: 'PDF', href: publicFile('papers/example.pdf') },
       { label: 'Code', href: 'https://github.com/biniyamlombe/example' },
     ],
   },
@@ -121,7 +121,7 @@ export const publications = [
 - `href` is optional. If set, the title becomes a link (usually arXiv or the PDF).
 - `links` is optional. Use it for PDF, code, slides, and so on.
 - Your name is bolded when it matches `site.name` or `site.shortName`.
-- Put PDFs you want to host in `public/papers/` and link them as `/papers/your-file.pdf`.
+- Put PDFs you want to host in `public/papers/` and link them with `publicFile('papers/your-file.pdf')`.
 
 ### News
 
@@ -168,9 +168,9 @@ Put your file here (no code change):
 public/cv.pdf
 ```
 
-The sidebar **CV** link already goes to `/cv.pdf`. Until the file is there, that link 404s.
+The sidebar **CV** link uses `publicFile('cv.pdf')`. Until the file is there, that link 404s.
 
-If you prefer `resume.pdf`, save it as `public/resume.pdf` and in `src/data/site.js` change the CV `href` from `'/cv.pdf'` to `'/resume.pdf'`.
+If you prefer `resume.pdf`, save it as `public/resume.pdf` and change that call to `publicFile('resume.pdf')`.
 
 ## Look and feel
 
@@ -198,18 +198,25 @@ Without those variables, production also falls back to the browser count.
 
 ## Deploy
 
-This is a static Vite app plus one optional serverless function.
+### GitHub Pages
+
+Pushes to `main` build and publish the site at:
+
+https://biniyamlombe.github.io/portfolio/
+
+GitHub Pages is static only. It will not run `api/visits.js`, so the footer uses the browser `localStorage` count.
+
+### Vercel
 
 1. `npm run build` produces `dist/`.
-2. On Vercel, the repo can be imported as a Vite project. `api/visits.js` is picked up as an API route.
+2. Import the repo as a Vite project. `api/visits.js` is picked up as an API route.
 3. Add `public/cv.pdf` before you care about the CV link.
 4. Set the Upstash variables if you want a global visit count.
-
-GitHub Pages can host the static `dist/` output, but it will not run `api/visits.js`. The footer will keep using the local fallback.
 
 ## Project layout
 
 ```
+├── .github/workflows/     GitHub Pages deploy
 ├── api/visits.js          Visit counter (production)
 ├── public/                Static files (favicon, cv.pdf)
 ├── src/
