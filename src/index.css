@@ -8,7 +8,7 @@
  *   .page / .rail / .content   two-column shell
  *   .headshot                  photo box
  *   .about / .section          right-column sections
- *   .news-feed / .pub-list     lists
+ *   .news-feed / .pub-list / .work-list     lists
  *   .colophon                  footer pill (white)
  *
  * After adding a new section in App.jsx, add a class here rather than inline styles.
@@ -249,12 +249,15 @@ input {
   gap: 0.45rem;
   margin-top: 0.75rem;
   padding: 0.38rem 0.8rem;
+  max-width: 100%;
   border-radius: var(--radius-pill);
   background: var(--accent-soft);
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.8rem;
   font-weight: 550;
+  line-height: 1.35;
+  text-wrap: pretty;
 }
 
 .status-dot {
@@ -343,7 +346,8 @@ input {
 
 .prose a,
 .news-feed a,
-.pub-list a {
+.pub-list a,
+.work-list a {
   color: var(--accent);
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -353,7 +357,8 @@ input {
 
 .prose a:hover,
 .news-feed a:hover,
-.pub-list a:hover {
+.pub-list a:hover,
+.work-list a:hover {
   color: var(--text);
 }
 
@@ -433,6 +438,45 @@ input {
 .pub-links a {
   margin-left: 0.55rem;
   text-indent: 0;
+}
+
+.work-list {
+  list-style: none;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.work-list h3 {
+  font-family: var(--display);
+  font-size: 1.12rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+.work-title {
+  color: inherit;
+}
+
+.work-blurb {
+  margin-top: 0.28rem;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.work-meta {
+  margin-top: 0.38rem;
+  color: var(--text-faint);
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  font-weight: 550;
+  letter-spacing: 0.02em;
+}
+
+.work-meta a {
+  margin-left: 0.55rem;
 }
 
 .site-footer {
