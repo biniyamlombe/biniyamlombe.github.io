@@ -14,10 +14,15 @@
  *
  * RESUME / CV
  *   Save your PDF as:  public/cv.pdf
- *   The sidebar "CV" row already links to /cv.pdf.
+ *   The sidebar "CV" row already uses publicFile('cv.pdf').
  *   If you name it resume.pdf instead, put it at public/resume.pdf and
- *   change the CV href below from '/cv.pdf' to '/resume.pdf'.
+ *   change that call to publicFile('resume.pdf').
  */
+
+/** Files in public/. Keeps /portfolio/ working on GitHub Pages. */
+export function publicFile(name) {
+  return `${import.meta.env.BASE_URL}${String(name).replace(/^\//, '')}`;
+}
 
 export const site = {
   name: 'Biniyam Lombe',
@@ -36,7 +41,7 @@ export const site = {
    * icon must be one of: map, mail, scholar, github, linkedin, twitter, cv
    * (To support a new icon name, also add it to the `icons` map in Sidebar.jsx.)
    *
-   * Resume/CV: public/cv.pdf  →  href: '/cv.pdf'
+   * Resume/CV: public/cv.pdf  →  href: publicFile('cv.pdf')
    */
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },
@@ -45,7 +50,7 @@ export const site = {
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
-    { name: 'CV', href: '/cv.pdf', icon: 'cv' },
+    { name: 'CV', href: publicFile('cv.pdf'), icon: 'cv' },
   ],
 };
 
@@ -70,7 +75,7 @@ export const interestsCopy =
  *   year: 2026,
  *   href: 'https://arxiv.org/abs/0000.00000',
  *   links: [
- *     { label: 'PDF', href: '/papers/your-file.pdf' },
+ *     { label: 'PDF', href: publicFile('papers/your-file.pdf') },
  *     { label: 'Code', href: 'https://github.com/biniyamlombe/your-repo' },
  *   ],
  * }

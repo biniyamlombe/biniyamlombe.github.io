@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FileText, Github, GraduationCap, ImagePlus, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
-import { site } from '../data/site';
+import { publicFile, site } from '../data/site';
 
 /**
  * Left identity rail: photo, name, role, status, contact list.
@@ -10,7 +10,7 @@ import { site } from '../data/site';
  *   Drag-and-drop on the square is a temporary preview only.
  *
  * Resume: put the file in public/ as cv.pdf. The CV row in site.contacts
- *   already links to /cv.pdf.
+ *   already uses publicFile('cv.pdf').
  *
  * Name, role, and links: src/data/site.js
  *
@@ -28,10 +28,10 @@ const icons = {
 };
 
 const HEADSHOT_PATHS = [
-  '/headshot.jpg',
-  '/headshot.jpeg',
-  '/headshot.png',
-  '/headshot.webp',
+  publicFile('headshot.jpg'),
+  publicFile('headshot.jpeg'),
+  publicFile('headshot.png'),
+  publicFile('headshot.webp'),
 ];
 
 function imageExists(src) {
