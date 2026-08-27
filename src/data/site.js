@@ -95,6 +95,7 @@ export const projects = [];
  *
  * Optional titles: several course names on one row, one per line.
  * Use that instead of title.
+ * Optional until: end month shown under term, e.g. term: 'Jan 2023', until: 'Aug 2024'.
  */
 export const teaching = [
   {
@@ -148,7 +149,9 @@ export const teaching = [
       'Foundation Mathematics',
       'Introduction to Computer Programming in Python',
     ],
-    term: '2023–2024',
+    term: 'Jan 2023',
+    until: 'Aug 2024',
+    dateTime: '2023-01/2024-08',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
   },
