@@ -351,7 +351,8 @@ input {
 .news-feed a,
 .pub-list a,
 .work-list a,
-.teach-list a {
+.teach-list a,
+.award-list a {
   color: var(--accent);
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -363,7 +364,8 @@ input {
 .news-feed a:hover,
 .pub-list a:hover,
 .work-list a:hover,
-.teach-list a:hover {
+.teach-list a:hover,
+.award-list a:hover {
   color: var(--text);
 }
 
@@ -580,6 +582,26 @@ a.teach-code {
     grid-column: 2;
     grid-row: 1 / span 2;
     min-width: 5.4rem;
+  }
+}
+
+.award-list {
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.award-list > li {
+  display: grid;
+  grid-template-columns: 11.75rem 9.5rem minmax(0, 1fr);
+  gap: 0.35rem 1rem;
+  align-items: start;
+  padding: 0.72rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 699px) {
+  .award-list > li {
+    grid-template-columns: 1fr;
   }
 }
 

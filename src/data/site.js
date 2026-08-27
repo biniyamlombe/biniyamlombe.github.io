@@ -165,6 +165,53 @@ export const teaching = [
 ];
 
 /**
+ * AWARDS
+ *
+ * Add items newest first. Copy an object below.
+ *
+ * {
+ *   year: '2024',
+ *   org: 'Yale',
+ *   name: 'Wade Scholarship',
+ *   href: 'https://www.cs.yale.edu/',
+ * }
+ *
+ * Optional: href (award or announcement link).
+ */
+export const awards = [
+  {
+    year: '2024 - 2026',
+    org: 'Yale',
+    name: 'Wade Scholarship',
+    href: 'https://www.cs.yale.edu/',
+  },
+  {
+    year: '2020',
+    org: 'FACE',
+    name: 'Pius Adesanmi Memorial Student Award, second prize',
+    href: 'http://foreverafrica.org/2020-finalists/',
+  },
+  {
+    year: '2020',
+    org: 'Bristol',
+    name: 'PLUS Award',
+    href: 'https://www.bristol.ac.uk/',
+  },
+  {
+    year: '2019',
+    org: 'Bristol',
+    name: 'Think Big Scholarship',
+    href: 'https://www.bristol.ac.uk/international/fees-financial-support/scholarships/',
+  },
+  {
+    year: '2017',
+    org: 'Ashinaga',
+    name: 'Africa Initiative Scholarship',
+    href: 'https://www.ashinaga.org/en/media/featured-news/8418/',
+  },
+];
+
+/**
  * PUBLICATIONS
  *
  * Add objects to this array. Newest year is shown first automatically.
