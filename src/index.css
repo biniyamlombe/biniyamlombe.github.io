@@ -494,15 +494,11 @@ input {
 
 .teach-list > li {
   display: grid;
-  grid-template-columns: max-content minmax(7.5rem, 10.25rem) minmax(0, 1fr) auto;
+  grid-template-columns: 11.75rem 9.5rem minmax(0, 1fr) 5.9rem;
   gap: 0.35rem 1rem;
-  align-items: baseline;
+  align-items: start;
   padding: 0.72rem 0;
   border-bottom: 1px solid var(--line);
-}
-
-.teach-list > li.has-stack {
-  align-items: start;
 }
 
 .teach-list time {
@@ -512,7 +508,8 @@ input {
   font-weight: 650;
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
-  line-height: 1.25;
+  line-height: 1.35;
+  padding-top: 0.16rem;
   white-space: nowrap;
 }
 
@@ -522,6 +519,8 @@ input {
   font-size: 0.8rem;
   font-weight: 550;
   letter-spacing: 0.01em;
+  line-height: 1.35;
+  padding-top: 0.16rem;
 }
 
 a.teach-code {
@@ -534,30 +533,34 @@ a.teach-code {
   font-size: 1.04rem;
   font-weight: 500;
   letter-spacing: -0.018em;
-  line-height: 1.35;
+  line-height: 1.45;
   text-wrap: pretty;
 }
 
 .teach-titles {
   list-style: none;
   display: grid;
-  gap: 0.18rem;
-}
-
-.teach-list > li.has-stack .teach-role {
-  margin-top: 0.22rem;
+  gap: 0.28rem;
 }
 
 .teach-role {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   justify-self: end;
+  align-self: start;
+  margin-top: 0.08rem;
+  min-width: 5.9rem;
   color: var(--accent);
   font-family: var(--sans);
-  font-size: 0.68rem;
+  font-size: 0.66rem;
   font-weight: 650;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   line-height: 1;
   text-transform: uppercase;
-  padding: 0.28rem 0.48rem;
+  white-space: nowrap;
+  padding: 0.28rem 0.4rem;
   border: 1px solid color-mix(in srgb, var(--accent) 26%, transparent);
   border-radius: var(--radius-pill);
 }
@@ -565,7 +568,6 @@ a.teach-code {
 @media (max-width: 699px) {
   .teach-list > li {
     grid-template-columns: 1fr auto;
-    align-items: start;
   }
 
   .teach-list time,
@@ -577,8 +579,7 @@ a.teach-code {
   .teach-role {
     grid-column: 2;
     grid-row: 1 / span 2;
-    align-self: start;
-    margin-top: 0.12rem;
+    min-width: 5.4rem;
   }
 }
 
