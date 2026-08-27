@@ -95,7 +95,7 @@ export const projects = [];
  *
  * Optional titles: several course names on one row, one per line.
  * Use that instead of title.
- * Optional until: end month shown under term, e.g. term: 'Jan 2023', until: 'Aug 2024'.
+ * Optional until: end month on the same line, e.g. term: 'Jan 2023', until: 'Aug 2024'.
  */
 export const teaching = [
   {

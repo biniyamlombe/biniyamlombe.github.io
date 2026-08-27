@@ -488,7 +488,7 @@ input {
 
 .teach-list > li {
   display: grid;
-  grid-template-columns: 7.1rem minmax(7.5rem, 10.25rem) minmax(0, 1fr) auto;
+  grid-template-columns: max-content minmax(7.5rem, 10.25rem) minmax(0, 1fr) auto;
   gap: 0.35rem 1rem;
   align-items: baseline;
   padding: 0.72rem 0;
@@ -507,12 +507,7 @@ input {
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.01em;
   line-height: 1.25;
-}
-
-.teach-until {
-  display: block;
-  margin-top: 0.14rem;
-  font-weight: 550;
+  white-space: nowrap;
 }
 
 .teach-code {

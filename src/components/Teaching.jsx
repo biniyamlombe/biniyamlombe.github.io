@@ -33,8 +33,7 @@ const Teaching = () => {
                 className={names.length > 1 ? 'has-stack' : undefined}
               >
                 <time dateTime={course.dateTime}>
-                  {course.term}
-                  {course.until && <span className="teach-until">-- {course.until}</span>}
+                  {course.until ? `${course.term} - ${course.until}` : course.term}
                 </time>
                 {course.href ? (
                   <a
