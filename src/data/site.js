@@ -193,4 +193,15 @@ export const news = [
       'Coursework and research at the seam of machine learning, privacy, and security.',
     ],
   },
+  {
+    date: 'Jun 2022',
+    parts: [
+      { text: 'Completed my B.Eng. in Electrical and Electronic Engineering at the ' },
+      { text: 'University of Bristol', href: 'https://www.bristol.ac.uk/' },
+      { text: '.' },
+    ],
+    notes: [
+      'First Class Honours.',
+    ],
+  },
 ];
