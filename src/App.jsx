@@ -2,13 +2,14 @@ import Sidebar from './components/Sidebar';
 import Hero from './components/Hero';
 import Research from './components/Research';
 import Projects from './components/Projects';
+import Teaching from './components/Teaching';
 import Publications from './components/Publications';
 import News from './components/News';
 import Footer from './components/Footer';
 
 /**
  * Page shell. Section order on the page is the order of components below:
- * About → Interests → Selected work → Publications → News.
+ * About → Interests → Selected work → Teaching → Publications → News.
  *
  * That order is meant for both PhD committees and SWE / ML hiring.
  *
@@ -26,6 +27,7 @@ function App() {
           <Hero />
           <Research />
           <Projects />
+          <Teaching />
           <Publications />
           <News />
         </div>
