@@ -81,6 +81,45 @@ export const interestsCopy =
 export const projects = [];
 
 /**
+ * TEACHING
+ *
+ * Add courses newest first. Copy an object below.
+ *
+ * {
+ *   code: 'CPSC 2230',
+ *   title: 'Data Structures & Programming Techniques',
+ *   term: 'Fall 2024',
+ *   role: 'Teaching Assistant',
+ * }
+ */
+export const teaching = [
+  {
+    code: 'CPSC 4580/5580',
+    title: 'Automated Decision Systems',
+    term: 'Spring 2026',
+    role: 'Teaching Assistant',
+  },
+  {
+    code: 'CPSC 4370/5370',
+    title: 'Database Systems',
+    term: 'Fall 2025',
+    role: 'Teaching Assistant',
+  },
+  {
+    code: 'CPSC 1700',
+    title: 'AI for Future Presidents',
+    term: 'Spring 2025',
+    role: 'Teaching Assistant',
+  },
+  {
+    code: 'CPSC 2230',
+    title: 'Data Structures & Programming Techniques',
+    term: 'Fall 2024',
+    role: 'Teaching Assistant',
+  },
+];
+
+/**
  * PUBLICATIONS
  *
  * Add objects to this array. Newest year is shown first automatically.
