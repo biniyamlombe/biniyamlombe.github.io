@@ -23,7 +23,18 @@ const Teaching = () => {
           {teaching.map((course) => (
             <li key={`${course.code}-${course.term}`}>
               <time>{course.term}</time>
-              <span className="teach-code">{course.code}</span>
+              {course.href ? (
+                <a
+                  className="teach-code"
+                  href={course.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {course.code}
+                </a>
+              ) : (
+                <span className="teach-code">{course.code}</span>
+              )}
               <span className="teach-title">{course.title}</span>
               {course.role && <span className="teach-role">{course.role}</span>}
             </li>

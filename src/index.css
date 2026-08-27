@@ -347,7 +347,8 @@ input {
 .prose a,
 .news-feed a,
 .pub-list a,
-.work-list a {
+.work-list a,
+.teach-list a {
   color: var(--accent);
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -358,7 +359,8 @@ input {
 .prose a:hover,
 .news-feed a:hover,
 .pub-list a:hover,
-.work-list a:hover {
+.work-list a:hover,
+.teach-list a:hover {
   color: var(--text);
 }
 
@@ -508,6 +510,11 @@ input {
   font-size: 0.8rem;
   font-weight: 550;
   letter-spacing: 0.01em;
+}
+
+a.teach-code {
+  color: var(--accent);
+  width: fit-content;
 }
 
 .teach-title {
