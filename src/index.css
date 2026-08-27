@@ -8,7 +8,7 @@
  *   .page / .rail / .content   two-column shell
  *   .headshot                  photo box
  *   .about / .section          right-column sections
- *   .news-feed / .pub-list / .work-list     lists
+ *   .news-feed / .pub-list / .work-list / .teach-list     lists
  *   .colophon                  footer pill (white)
  *
  * After adding a new section in App.jsx, add a class here rather than inline styles.
@@ -477,6 +477,43 @@ input {
 
 .work-meta a {
   margin-left: 0.55rem;
+}
+
+.teach-list {
+  list-style: none;
+  display: grid;
+  gap: 0.95rem;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.teach-list > li > p {
+  text-wrap: pretty;
+}
+
+.teach-list time {
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  margin-right: 0.55rem;
+}
+
+.teach-code {
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  margin-right: 0.45rem;
+}
+
+.teach-role {
+  margin-top: 0.2rem;
+  margin-left: 0;
+  padding-left: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
 }
 
 .site-footer {
