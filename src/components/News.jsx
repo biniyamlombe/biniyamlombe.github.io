@@ -13,7 +13,7 @@ const News = () => {
       <motion.div
         initial={reduce ? false : { opacity: 0, transform: 'translateY(12px)' }}
         whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true, amount: 0.4 }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
       >
         <h2 id="news-heading">News</h2>

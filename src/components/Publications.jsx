@@ -32,7 +32,7 @@ const Publications = () => {
       <motion.div
         initial={reduce ? false : { opacity: 0, transform: 'translateY(10px)' }}
         whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true, amount: 0.35 }}
+        viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
       >
         <h2 id="publications-heading">Publications</h2>
