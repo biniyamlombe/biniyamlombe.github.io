@@ -90,6 +90,7 @@ export const projects = [];
  *   title: 'Data Structures & Programming Techniques',
  *   term: 'Fall 2024',
  *   role: 'TA',
+ *   href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
  * }
  */
 export const teaching = [
@@ -104,6 +105,7 @@ export const teaching = [
     title: 'Database Systems',
     term: 'Fall 2025',
     role: 'TA',
+    href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
   },
   {
     code: 'CPSC 1700',
