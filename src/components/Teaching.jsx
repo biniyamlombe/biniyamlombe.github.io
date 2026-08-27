@@ -24,11 +24,17 @@ const Teaching = () => {
             <li key={`${course.code}-${course.term}`}>
               <p>
                 <time>{course.term}</time>
+                {' '}
                 <span className="teach-code">{course.code}</span>
                 {' '}
                 {course.title}
+                {course.role && (
+                  <>
+                    ,{' '}
+                    <span className="teach-role">{course.role}</span>
+                  </>
+                )}
               </p>
-              {course.role && <p className="teach-role">{course.role}</p>}
             </li>
           ))}
         </ul>
