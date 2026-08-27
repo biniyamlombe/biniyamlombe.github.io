@@ -99,6 +99,7 @@ export const teaching = [
     title: 'Automated Decision Systems',
     term: 'Spring 2026',
     role: 'TA',
+    href: 'https://zoo.cs.yale.edu/classes/cs458/syllabus.html',
   },
   {
     code: 'CPSC 4370/5370',
