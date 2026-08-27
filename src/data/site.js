@@ -130,18 +130,18 @@ export const teaching = [
     href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
   },
   {
-    code: 'UWE Bristol',
-    title: 'Electrical Engineering, Physics, Python, and Mathematics',
-    term: '2023–2024',
-    role: 'Lecturer',
-    href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
-  },
-  {
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2024',
     role: 'TA',
     href: 'https://www.addiscoder.com/',
+  },
+  {
+    code: 'UWE Bristol',
+    title: 'Electrical Engineering, Physics, Python, and Mathematics',
+    term: '2023–2024',
+    role: 'Lecturer',
+    href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
   },
   {
     code: 'AddisCoder',
