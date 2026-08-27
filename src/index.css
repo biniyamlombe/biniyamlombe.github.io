@@ -486,13 +486,17 @@ input {
   border-top: 1px solid var(--line);
 }
 
-.teach-list li {
+.teach-list > li {
   display: grid;
   grid-template-columns: 7.1rem minmax(7.5rem, 10.25rem) minmax(0, 1fr) auto;
   gap: 0.35rem 1rem;
   align-items: baseline;
   padding: 0.72rem 0;
   border-bottom: 1px solid var(--line);
+}
+
+.teach-list > li.has-stack {
+  align-items: start;
 }
 
 .teach-list time {
@@ -526,6 +530,16 @@ a.teach-code {
   text-wrap: pretty;
 }
 
+.teach-titles {
+  list-style: none;
+  display: grid;
+  gap: 0.18rem;
+}
+
+.teach-list > li.has-stack .teach-role {
+  margin-top: 0.22rem;
+}
+
 .teach-role {
   justify-self: end;
   color: var(--accent);
@@ -541,7 +555,7 @@ a.teach-code {
 }
 
 @media (max-width: 699px) {
-  .teach-list li {
+  .teach-list > li {
     grid-template-columns: 1fr auto;
     align-items: start;
   }

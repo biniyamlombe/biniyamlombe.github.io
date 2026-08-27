@@ -92,6 +92,9 @@ export const projects = [];
  *   role: 'TA',
  *   href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
  * }
+ *
+ * Optional titles: several course names on one row, one per line.
+ * Use that instead of title.
  */
 export const teaching = [
   {
@@ -138,7 +141,13 @@ export const teaching = [
   },
   {
     code: 'UWE Bristol',
-    title: 'Principles of Electrical Engineering, Fluid Mechanics, Foundation Physics, Foundation Mathematics, and Introduction to Computer Programming in Python',
+    titles: [
+      'Principles of Electrical Engineering',
+      'Fluid Mechanics',
+      'Foundation Physics',
+      'Foundation Mathematics',
+      'Introduction to Computer Programming in Python',
+    ],
     term: '2023–2024',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
