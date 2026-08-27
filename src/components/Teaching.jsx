@@ -22,19 +22,10 @@ const Teaching = () => {
         <ul className="teach-list">
           {teaching.map((course) => (
             <li key={`${course.code}-${course.term}`}>
-              <p>
-                <time>{course.term}</time>
-                {' '}
-                <span className="teach-code">{course.code}</span>
-                {' '}
-                {course.title}
-                {course.role && (
-                  <>
-                    ,{' '}
-                    <span className="teach-role">{course.role}</span>
-                  </>
-                )}
-              </p>
+              <time>{course.term}</time>
+              <span className="teach-code">{course.code}</span>
+              <span className="teach-title">{course.title}</span>
+              {course.role && <span className="teach-role">{course.role}</span>}
             </li>
           ))}
         </ul>
