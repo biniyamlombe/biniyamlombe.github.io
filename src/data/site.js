@@ -89,7 +89,7 @@ export const projects = [];
  *   code: 'CPSC 2230',
  *   title: 'Data Structures & Programming Techniques',
  *   term: 'Fall 2024',
- *   role: 'Teaching Assistant',
+ *   role: 'TA',
  * }
  */
 export const teaching = [
@@ -97,25 +97,25 @@ export const teaching = [
     code: 'CPSC 4580/5580',
     title: 'Automated Decision Systems',
     term: 'Spring 2026',
-    role: 'Teaching Assistant',
+    role: 'TA',
   },
   {
     code: 'CPSC 4370/5370',
     title: 'Database Systems',
     term: 'Fall 2025',
-    role: 'Teaching Assistant',
+    role: 'TA',
   },
   {
     code: 'CPSC 1700',
     title: 'AI for Future Presidents',
     term: 'Spring 2025',
-    role: 'Teaching Assistant',
+    role: 'TA',
   },
   {
     code: 'CPSC 2230',
     title: 'Data Structures & Programming Techniques',
     term: 'Fall 2024',
-    role: 'Teaching Assistant',
+    role: 'TA',
   },
 ];
 
