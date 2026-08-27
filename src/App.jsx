@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 
 /**
  * Page shell. Section order on the page is the order of components below:
- * About → Interests → Selected work → Teaching → Publications → News.
+ * About → Interests → Selected work → Publications → Teaching → News.
  *
  * That order is meant for both PhD committees and SWE / ML hiring.
  *
@@ -27,8 +27,8 @@ function App() {
           <Hero />
           <Research />
           <Projects />
-          <Teaching />
           <Publications />
+          <Teaching />
           <News />
         </div>
       </div>
