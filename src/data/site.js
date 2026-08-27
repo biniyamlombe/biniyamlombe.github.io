@@ -138,7 +138,7 @@ export const teaching = [
   },
   {
     code: 'UWE Bristol',
-    title: 'Electrical Engineering, Physics, Python, and Mathematics',
+    title: 'Principles of Electrical Engineering, Fluid Mechanics, Foundation Physics, Foundation Mathematics, and Introduction to Computer Programming in Python',
     term: '2023–2024',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
