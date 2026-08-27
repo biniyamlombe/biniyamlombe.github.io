@@ -120,6 +120,7 @@ export const teaching = [
     title: 'Data Structures & Programming Techniques',
     term: 'Fall 2024',
     role: 'TA',
+    href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
   },
 ];
 
