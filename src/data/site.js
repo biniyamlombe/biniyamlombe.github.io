@@ -113,6 +113,7 @@ export const teaching = [
     title: 'AI for Future Presidents',
     term: 'Spring 2025',
     role: 'TA',
+    href: 'https://zoo.cs.yale.edu/dsac/blog/2023/12/19/cpsc-170/',
   },
   {
     code: 'CPSC 2230',
