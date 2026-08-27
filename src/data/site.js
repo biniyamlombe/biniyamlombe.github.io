@@ -194,6 +194,14 @@ export const news = [
     ],
   },
   {
+    date: 'Feb 2026',
+    parts: [
+      { text: 'Interviewed by ' },
+      { text: 'Deutsche Welle', href: 'https://www.dw.com/am/%E1%89%A2%E1%8A%92%E1%8B%AB%E1%88%9D-%E1%88%8E%E1%88%8A%E1%88%B6/a-75826516' },
+      { text: ' about AddisCoder, mentorship, and education access in Ethiopia.' },
+    ],
+  },
+  {
     date: 'Jun 2022',
     parts: [
       { text: 'Completed my B.Eng. in Electrical and Electronic Engineering at the ' },
