@@ -30,7 +30,7 @@ Drag-and-drop on the photo square is a local preview only. It is not saved.
 
 ## Deploy
 
-Pushes to `main` go live on GitHub Pages. The visit counter stays per-browser there. A shared count needs Vercel plus Upstash (`UPSTASH_REDIS_REST_URL`, `UPSTASH_REDIS_REST_TOKEN`).
+Pushes to `main` go live on GitHub Pages. The visit count is shared across browsers.
 
 ## Stack
 
