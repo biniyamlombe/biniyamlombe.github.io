@@ -129,6 +129,20 @@ export const teaching = [
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
   },
+  {
+    code: 'AddisCoder',
+    title: 'Programming and Algorithms',
+    term: 'Summer 2024',
+    role: 'TA',
+    href: 'https://www.addiscoder.com/',
+  },
+  {
+    code: 'AddisCoder',
+    title: 'Programming and Algorithms',
+    term: 'Summer 2023',
+    role: 'TA',
+    href: 'https://www.addiscoder.com/',
+  },
 ];
 
 /**
