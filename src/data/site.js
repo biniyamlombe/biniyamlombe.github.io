@@ -95,14 +95,14 @@ export const projects = [];
  */
 export const teaching = [
   {
-    code: 'CPSC 4580/5580',
+    code: 'CPSC 5580',
     title: 'Automated Decision Systems',
     term: 'Spring 2026',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs458/syllabus.html',
   },
   {
-    code: 'CPSC 4370/5370',
+    code: 'CPSC 5370',
     title: 'Database Systems',
     term: 'Fall 2025',
     role: 'TA',
