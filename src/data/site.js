@@ -109,6 +109,13 @@ export const teaching = [
     href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
   },
   {
+    code: 'AddisCoder',
+    title: 'Programming and Algorithms',
+    term: 'Summer 2025',
+    role: 'Head TA',
+    href: 'https://www.addiscoder.com/',
+  },
+  {
     code: 'CPSC 1700',
     title: 'AI for Future Presidents',
     term: 'Spring 2025',
