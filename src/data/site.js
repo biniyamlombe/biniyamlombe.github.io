@@ -97,12 +97,15 @@ export const projects = [];
  * Optional titles: several course names on one row, one per line.
  * Use that instead of title.
  * Optional until: end month on the same line, e.g. term: 'Jan 2023', until: 'Aug 2024'.
+ * dateTime: machine-readable start month, 'YYYY-MM'. Search engines and screen
+ * readers use this instead of the display term. For a range, use the start month.
  */
 export const teaching = [
   {
     code: 'CPSC 5580',
     title: 'Automated Decision Systems',
     term: 'Spring 2026',
+    dateTime: '2026-01',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs458/syllabus.html',
   },
@@ -110,6 +113,7 @@ export const teaching = [
     code: 'CPSC 5370',
     title: 'Database Systems',
     term: 'Fall 2025',
+    dateTime: '2025-09',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
   },
@@ -117,6 +121,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2025',
+    dateTime: '2025-06',
     role: 'Head TA',
     href: 'https://www.addiscoder.com/',
   },
@@ -124,6 +129,7 @@ export const teaching = [
     code: 'CPSC 1700',
     title: 'AI for Future Presidents',
     term: 'Spring 2025',
+    dateTime: '2025-01',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/dsac/blog/2023/12/19/cpsc-170/',
   },
@@ -131,6 +137,7 @@ export const teaching = [
     code: 'CPSC 2230',
     title: 'Data Structures & Programming Techniques',
     term: 'Fall 2024',
+    dateTime: '2024-09',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
   },
@@ -138,6 +145,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2024',
+    dateTime: '2024-06',
     role: 'TA',
     href: 'https://www.addiscoder.com/',
   },
@@ -152,7 +160,7 @@ export const teaching = [
     ],
     term: 'Jan 2023',
     until: 'Aug 2024',
-    dateTime: '2023-01/2024-08',
+    dateTime: '2023-01',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
   },
@@ -160,6 +168,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2023',
+    dateTime: '2023-06',
     role: 'TA',
     href: 'https://www.addiscoder.com/',
   },
