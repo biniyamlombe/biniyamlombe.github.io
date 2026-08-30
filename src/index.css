@@ -291,6 +291,26 @@ input {
   padding-top: 0;
 }
 
+/*
+ * Scroll-in fade, driven by src/components/Reveal.jsx.
+ * Sections start hidden only when the reader has not asked for reduced motion,
+ * so the reduced-motion and no-JS paths both show the page as-is.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(10px);
+    transition:
+      opacity 400ms var(--ease-out),
+      transform 400ms var(--ease-out);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .about {
   margin-top: 0;
 }

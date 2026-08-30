@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import { publications, scholarHref, site } from '../data/site';
 
 /**
@@ -25,16 +25,9 @@ function formatAuthors(authors) {
 }
 
 const Publications = () => {
-  const reduce = useReducedMotion();
-
   return (
     <section className="section" aria-labelledby="publications-heading">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, transform: 'translateY(10px)' }}
-        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-      >
+      <Reveal>
         <h2 id="publications-heading">Publications</h2>
         {publications.length === 0 ? (
           <p className="prose">
@@ -84,7 +77,7 @@ const Publications = () => {
               })}
           </ol>
         )}
-      </motion.div>
+      </Reveal>
     </section>
   );
 };

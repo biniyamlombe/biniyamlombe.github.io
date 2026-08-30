@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import { news } from '../data/site';
 
 /**
@@ -6,16 +6,9 @@ import { news } from '../data/site';
  * Keep newest entries first in that array.
  */
 const News = () => {
-  const reduce = useReducedMotion();
-
   return (
     <section className="section news" aria-labelledby="news-heading">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, transform: 'translateY(12px)' }}
-        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.45, ease: [0.23, 1, 0.32, 1] }}
-      >
+      <Reveal>
         <h2 id="news-heading">News</h2>
         <ul className="news-feed">
           {news.map((item) => (
@@ -42,7 +35,7 @@ const News = () => {
             </li>
           ))}
         </ul>
-      </motion.div>
+      </Reveal>
     </section>
   );
 };
