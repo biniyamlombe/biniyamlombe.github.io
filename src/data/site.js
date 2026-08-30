@@ -7,10 +7,11 @@
  * Do not invent papers or projects. Add an item only when you have a real title and link.
  *
  * PROFILE PHOTO
- *   Save your picture as:  public/headshot.jpg
- *   Also accepted in public/: headshot.jpeg, headshot.png, headshot.webp
- *   Refresh the page. The left-rail square loads it automatically.
- *   Click-or-drag on the square is a local preview only and is not saved.
+ *   Put the full-resolution photo at:  originals/headshot-full.jpg
+ *   Then run:  npm run headshot
+ *   That writes the two files the page actually serves, public/headshot.webp
+ *   and public/headshot.jpg, cropped square and sized for the rail. Do not put
+ *   a camera-sized JPEG in public/ directly; it is the whole page weight.
  *
  * RESUME / CV
  *   Save your PDF as:  public/cv.pdf
