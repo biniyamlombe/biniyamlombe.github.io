@@ -22,7 +22,8 @@
   --surface-2: #f3f3f3;
   --text: #171615;
   --text-muted: #5c5853;
-  --text-faint: #8a8580;
+  /* Passes WCAG AA (4.9:1) on --surface at the small sizes it is used at. */
+  --text-faint: #75706a;
   --accent: #9b3d32;
   --accent-soft: #f6e8e2;
   --line: rgba(23, 22, 21, 0.12);
