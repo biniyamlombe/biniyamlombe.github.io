@@ -9,6 +9,13 @@
     <meta name="description" content="Biniyam Lombe, CS master's student at Yale. Trustworthy machine learning, privacy, and security. Open to PhD programs and SWE / ML roles." />
     <!-- Browser tab title. -->
     <title>Biniyam Lombe</title>
+
+    <!--
+      The headshot is rendered by React, so the browser cannot find it until the
+      JS runs. This preload starts the download immediately and is what keeps
+      the largest paint fast. Update it if you rename the file.
+    -->
+    <link rel="preload" as="image" href="/headshot.webp" type="image/webp" fetchpriority="high" />
   </head>
   <body>
     <div id="root"></div>

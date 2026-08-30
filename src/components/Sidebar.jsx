@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
 import { FileText, Github, GraduationCap, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
 import { publicFile, site } from '../data/site';
 
 /**
  * Left identity rail: photo, name, role, status, contact list.
  *
- * Profile photo: put the file in public/ as headshot.webp or headshot.jpg.
- *   Run `npm run headshot` to generate them. No code change.
+ * Profile photo: public/headshot.webp (preferred) and public/headshot.jpg
+ *   (fallback for old browsers). Both are square and 640x640, which is 2x the
+ *   264px the rail draws. Keep the full-resolution original in originals/ and
+ *   regenerate the two served files when you swap the photo — see README.
  *
  * Resume: put the file in public/ as cv.pdf. The CV row in site.contacts
  *   already uses publicFile('cv.pdf').
@@ -26,49 +27,20 @@ const icons = {
   cv: FileText,
 };
 
-const HEADSHOT_PATHS = [
-  publicFile('headshot.jpg'),
-  publicFile('headshot.jpeg'),
-  publicFile('headshot.png'),
-  publicFile('headshot.webp'),
-];
-
-function imageExists(src) {
-  return new Promise((resolve) => {
-    const image = new Image();
-    image.onload = () => resolve(true);
-    image.onerror = () => resolve(false);
-    image.src = src;
-  });
-}
-
 const Sidebar = () => {
-  const [photo, setPhoto] = useState(null);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadHeadshot() {
-      for (const src of HEADSHOT_PATHS) {
-        if (await imageExists(src)) {
-          if (!cancelled) setPhoto(src);
-          return;
-        }
-      }
-    }
-
-    loadHeadshot();
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <aside className="rail" aria-label="Profile">
-      <div className={`headshot${photo ? ' has-photo' : ''}`}>
-        {photo && <img src={photo} alt={`${site.name} headshot`} />}
-      </div>
+      <picture className="headshot">
+        <source srcSet={publicFile('headshot.webp')} type="image/webp" />
+        <img
+          src={publicFile('headshot.jpg')}
+          alt={`${site.name}, ${site.role}`}
+          width="640"
+          height="640"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </picture>
 
       <h1 className="rail-name">{site.name}</h1>
       <p className="rail-role">{site.role}</p>
