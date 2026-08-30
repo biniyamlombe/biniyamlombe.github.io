@@ -8,8 +8,11 @@ import { useEffect, useState } from 'react';
  * If the site is later hosted on Vercel with Upstash, POST /api/visits is
  * tried first.
  *
- * localStorage only caches the last known global count so the footer does
- * not flash 0. It is not the source of truth.
+ * The whole component renders nothing until a real count above zero arrives,
+ * so a slow or failed request shows a plain footer rather than "0 visits".
+ *
+ * localStorage caches the last known global count so a repeat visitor sees a
+ * number immediately. It is not the source of truth.
  *
  * Hot reload and React StrictMode remounts reuse one in-flight request.
  */
@@ -104,14 +107,20 @@ const VisitCounter = () => {
     };
   }, []);
 
-  const count = visitCount ?? 0;
-  const visitWord = count === 1 ? 'visit' : 'visits';
+  // Render nothing until a real count arrives. Never show "0 visits": the only
+  // people who would see it are first-time visitors with nothing cached and
+  // anyone whose request failed, which is the worst possible audience for it.
+  // The footer reads fine as just the name and year in the meantime.
+  if (visitCount === null || visitCount < 1) return null;
 
   return (
-    <span className={`visits${visitCount === null ? ' is-loading' : ''}`}>
-      <span className="visits-count">{visitCount === null ? '0' : count.toLocaleString()}</span>
-      {` ${visitWord}`}
-    </span>
+    <>
+      <span className="visits">
+        <span className="visits-count">{visitCount.toLocaleString()}</span>
+        {visitCount === 1 ? ' visit' : ' visits'}
+      </span>
+      <span className="footer-rule" aria-hidden="true" />
+    </>
   );
 };
 

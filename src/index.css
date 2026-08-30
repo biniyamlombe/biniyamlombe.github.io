@@ -667,10 +667,6 @@ a.teach-code {
   font-variant-numeric: tabular-nums;
 }
 
-.visits.is-loading {
-  opacity: 0.4;
-}
-
 .visits-count {
   font-family: var(--display);
   font-size: 1.05rem;
