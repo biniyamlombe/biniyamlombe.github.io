@@ -190,8 +190,7 @@ input {
 }
 
 .headshot {
-  display: grid;
-  place-items: center;
+  display: block;
   width: 100%;
   max-width: var(--rail);
   aspect-ratio: 1;
