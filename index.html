@@ -2,13 +2,98 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- Tab icon: terracotta square. No initials, no photo. -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Shown in search results. Keep this in sync with your bio. -->
-    <meta name="description" content="Biniyam Lombe, CS master's student at Yale. Trustworthy machine learning, privacy, and security. Open to PhD programs and SWE / ML roles." />
+
     <!-- Browser tab title. -->
     <title>Biniyam Lombe</title>
+    <!-- Tab icon: terracotta square. No initials, no photo. -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!--
+      SEO. Keep the description in sync with the About paragraph in
+      src/components/Hero.jsx, and keep the URLs below pointing at the live site.
+      If you ever move off biniyamlombe.github.io, update every https://biniyamlombe.github.io/
+      in this file as well as the canonical link.
+    -->
+    <meta name="description" content="Biniyam Lombe, CS master's student at Yale. Trustworthy machine learning, privacy, and security. Open to PhD programs and SWE / ML roles." />
+    <meta name="author" content="Biniyam Lombe" />
+    <link rel="canonical" href="https://biniyamlombe.github.io/" />
+
+    <!-- How the link looks when pasted into Slack, iMessage, LinkedIn, X. -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content="Biniyam Lombe" />
+    <meta property="og:title" content="Biniyam Lombe — CS MS @ Yale" />
+    <meta property="og:description" content="Trustworthy machine learning, privacy, and security. Open to PhD programs and SWE / ML roles." />
+    <meta property="og:url" content="https://biniyamlombe.github.io/" />
+    <meta property="og:image" content="https://biniyamlombe.github.io/headshot.jpg" />
+    <meta property="og:image:width" content="640" />
+    <meta property="og:image:height" content="640" />
+    <meta property="og:image:alt" content="Biniyam Lombe" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="profile:first_name" content="Biniyam" />
+    <meta property="profile:last_name" content="Lombe" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:creator" content="@biniyamlombe" />
+
+    <!--
+      The headshot is rendered by React, so the browser cannot find it until the
+      JS runs. This preload starts the download immediately and is what keeps
+      the largest paint fast. Update it if you rename the file.
+    -->
+    <link rel="preload" as="image" href="/headshot.webp" type="image/webp" fetchpriority="high" />
+
+    <!--
+      Structured data. Google and Bing use this for the knowledge panel and for
+      linking this page to your Scholar / GitHub / LinkedIn profiles.
+      Keep it in sync with src/data/site.js.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Biniyam Lombe",
+        "givenName": "Biniyam",
+        "familyName": "Lombe",
+        "url": "https://biniyamlombe.github.io/",
+        "image": "https://biniyamlombe.github.io/headshot.jpg",
+        "email": "mailto:biniyam.lombe@yale.edu",
+        "jobTitle": "Computer Science MS Student",
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": "Yale University",
+          "url": "https://www.cs.yale.edu/"
+        },
+        "alumniOf": [
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "Yale University",
+            "url": "https://www.cs.yale.edu/"
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            "name": "University of Bristol",
+            "url": "https://www.bristol.ac.uk/"
+          }
+        ],
+        "knowsAbout": [
+          "Machine Learning",
+          "Natural Language Processing",
+          "Computer Vision",
+          "Differential Privacy",
+          "Federated Learning",
+          "Adversarial Robustness",
+          "Machine Learning Security"
+        ],
+        "sameAs": [
+          "https://github.com/biniyamlombe",
+          "https://www.linkedin.com/in/biniyamlombe",
+          "https://x.com/biniyamlombe",
+          "https://scholar.google.com/scholar?q=Biniyam+Lombe"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

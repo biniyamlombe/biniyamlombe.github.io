@@ -11,8 +11,9 @@ const Footer = () => {
   return (
     <footer className="site-footer">
       <div className="colophon">
+        {/* Renders the count and its divider together, or nothing at all
+            if the count has not arrived. See VisitCounter.jsx. */}
         <VisitCounter />
-        <span className="footer-rule" aria-hidden="true" />
         <p className="copyright">
           {site.name}
           <span className="copyright-mark"> © </span>

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import { site } from '../data/site';
 
 /**
@@ -7,15 +7,9 @@ import { site } from '../data/site';
  * (site.school, site.schoolHref, site.degree, site.email).
  */
 const Hero = () => {
-  const reduce = useReducedMotion();
-
   return (
     <section className="about" aria-labelledby="about-heading">
-      <motion.div
-        initial={reduce ? false : { opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-      >
+      <Reveal immediate>
         <h2 id="about-heading">About</h2>
         <div className="prose">
           <p>
@@ -25,7 +19,7 @@ const Hero = () => {
             I am applying to CS PhD programs for Fall 2026, and I am looking at software engineering and machine learning roles. The fastest way to reach me is by <a href={`mailto:${site.email}`}>email</a>.
           </p>
         </div>
-      </motion.div>
+      </Reveal>
     </section>
   );
 };

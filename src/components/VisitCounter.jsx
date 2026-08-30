@@ -5,11 +5,14 @@ import { useEffect, useState } from 'react';
  *
  * Shared across browsers and incognito. GitHub Pages has no server, so the
  * count lives at hitscounter.dev, keyed to https://biniyamlombe.github.io/.
- * If the site is later hosted on Vercel with Upstash, POST /api/visits is
- * tried first.
+ * Build with VITE_VISITS_API=1 to try POST /api/visits first instead, which
+ * only works on a host that runs api/visits.js (Vercel plus Upstash).
  *
- * localStorage only caches the last known global count so the footer does
- * not flash 0. It is not the source of truth.
+ * The whole component renders nothing until a real count above zero arrives,
+ * so a slow or failed request shows a plain footer rather than "0 visits".
+ *
+ * localStorage caches the last known global count so a repeat visitor sees a
+ * number immediately. It is not the source of truth.
  *
  * Hot reload and React StrictMode remounts reuse one in-flight request.
  */
@@ -19,35 +22,55 @@ const SHARED_COUNTER_HREF =
   encodeURIComponent('https://biniyamlombe.github.io/') +
   '&output=json';
 
+/**
+ * localStorage throws, rather than returning null, when a browser has site
+ * storage switched off. Both helpers swallow that: a missing cache costs
+ * nothing, and it must never be able to take the page down.
+ */
 function readCachedCount() {
-  const storedValue = window.localStorage.getItem(COUNT_CACHE_KEY);
-  const currentCount = Number.parseInt(storedValue ?? '0', 10);
-  return Number.isNaN(currentCount) ? 0 : currentCount;
+  try {
+    const storedValue = window.localStorage.getItem(COUNT_CACHE_KEY);
+    const currentCount = Number.parseInt(storedValue ?? '0', 10);
+    return Number.isNaN(currentCount) ? 0 : currentCount;
+  } catch {
+    return 0;
+  }
 }
 
 function cacheCount(count) {
-  window.localStorage.setItem(COUNT_CACHE_KEY, String(count));
+  try {
+    window.localStorage.setItem(COUNT_CACHE_KEY, String(count));
+  } catch {
+    // Storage disabled. The count still shows for this page view.
+  }
 }
 
 function fetchVisitCount() {
   if (!window.__portfolioVisitPromise) {
     window.__portfolioVisitPromise = (async () => {
-      try {
-        const response = await fetch('/api/visits', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        });
+      // Only try our own backend where one actually exists. On GitHub Pages
+      // api/visits.js is never deployed, so this request would 404 on every
+      // single page load and log a red error in the console -- which anyone
+      // technical who opens devtools would see. Set VITE_VISITS_API=1 at build
+      // time if you move to Vercel and configure Upstash.
+      if (import.meta.env.VITE_VISITS_API) {
+        try {
+          const response = await fetch('/api/visits', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+          });
 
-        if (response.ok) {
-          const data = await response.json();
-          const count = Number(data.count);
-          if (!Number.isNaN(count)) {
-            cacheCount(count);
-            return count;
+          if (response.ok) {
+            const data = await response.json();
+            const count = Number(data.count);
+            if (!Number.isNaN(count)) {
+              cacheCount(count);
+              return count;
+            }
           }
+        } catch {
+          // Backend unreachable. Fall through to the shared counter below.
         }
-      } catch {
-        // GitHub Pages and local Vite do not serve /api/visits.
       }
 
       const response = await fetch(SHARED_COUNTER_HREF);
@@ -91,14 +114,20 @@ const VisitCounter = () => {
     };
   }, []);
 
-  const count = visitCount ?? 0;
-  const visitWord = count === 1 ? 'visit' : 'visits';
+  // Render nothing until a real count arrives. Never show "0 visits": the only
+  // people who would see it are first-time visitors with nothing cached and
+  // anyone whose request failed, which is the worst possible audience for it.
+  // The footer reads fine as just the name and year in the meantime.
+  if (visitCount === null || visitCount < 1) return null;
 
   return (
-    <span className={`visits${visitCount === null ? ' is-loading' : ''}`}>
-      <span className="visits-count">{visitCount === null ? '0' : count.toLocaleString()}</span>
-      {` ${visitWord}`}
-    </span>
+    <>
+      <span className="visits">
+        <span className="visits-count">{visitCount.toLocaleString()}</span>
+        {visitCount === 1 ? ' visit' : ' visits'}
+      </span>
+      <span className="footer-rule" aria-hidden="true" />
+    </>
   );
 };
 

@@ -1,4 +1,4 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import { githubHref, projects } from '../data/site';
 
 /**
@@ -6,16 +6,9 @@ import { githubHref, projects } from '../data/site';
  * Empty array → GitHub fallback text below.
  */
 const Projects = () => {
-  const reduce = useReducedMotion();
-
   return (
     <section className="section" aria-labelledby="work-heading">
-      <motion.div
-        initial={reduce ? false : { opacity: 0, transform: 'translateY(10px)' }}
-        whileInView={{ opacity: 1, transform: 'translateY(0px)' }}
-        viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-      >
+      <Reveal>
         <h2 id="work-heading">Selected work</h2>
         {projects.length === 0 ? (
           <p className="prose">
@@ -62,7 +55,7 @@ const Projects = () => {
             })}
           </ul>
         )}
-      </motion.div>
+      </Reveal>
     </section>
   );
 };

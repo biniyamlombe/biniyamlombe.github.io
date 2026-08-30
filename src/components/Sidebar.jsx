@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import { FileText, Github, GraduationCap, ImagePlus, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
+import { FileText, Github, GraduationCap, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
 import { publicFile, site } from '../data/site';
 
 /**
  * Left identity rail: photo, name, role, status, contact list.
  *
- * Profile photo: put the file in public/ as headshot.jpg
- *   (or headshot.jpeg / headshot.png / headshot.webp). No code change.
- *   Drag-and-drop on the square is a temporary preview only.
+ * Profile photo: public/headshot.webp (preferred) and public/headshot.jpg
+ *   (fallback for old browsers). Both are square and 640x640, which is 2x the
+ *   264px the rail draws. Keep the full-resolution original in originals/ and
+ *   regenerate the two served files when you swap the photo — see README.
  *
  * Resume: put the file in public/ as cv.pdf. The CV row in site.contacts
  *   already uses publicFile('cv.pdf').
@@ -27,89 +27,20 @@ const icons = {
   cv: FileText,
 };
 
-const HEADSHOT_PATHS = [
-  publicFile('headshot.jpg'),
-  publicFile('headshot.jpeg'),
-  publicFile('headshot.png'),
-  publicFile('headshot.webp'),
-];
-
-function imageExists(src) {
-  return new Promise((resolve) => {
-    const image = new Image();
-    image.onload = () => resolve(true);
-    image.onerror = () => resolve(false);
-    image.src = src;
-  });
-}
-
 const Sidebar = () => {
-  const objectUrl = useRef(null);
-  const userPicked = useRef(false);
-  const [photo, setPhoto] = useState(null);
-  const [dragging, setDragging] = useState(false);
-
-  useEffect(() => {
-    let cancelled = false;
-
-    async function loadHeadshot() {
-      for (const src of HEADSHOT_PATHS) {
-        if (await imageExists(src)) {
-          if (!cancelled && !userPicked.current) setPhoto(src);
-          return;
-        }
-      }
-    }
-
-    loadHeadshot();
-
-    return () => {
-      cancelled = true;
-      if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
-    };
-  }, []);
-
-  function setFile(file) {
-    if (!file || !file.type.startsWith('image/')) return;
-    userPicked.current = true;
-    if (objectUrl.current) URL.revokeObjectURL(objectUrl.current);
-    objectUrl.current = URL.createObjectURL(file);
-    setPhoto(objectUrl.current);
-  }
-
-  function onDrop(event) {
-    event.preventDefault();
-    setDragging(false);
-    setFile(event.dataTransfer.files?.[0]);
-  }
-
   return (
     <aside className="rail" aria-label="Profile">
-      <label
-        className={`headshot${photo ? ' has-photo' : ''}${dragging ? ' is-dragging' : ''}`}
-        onDragOver={(event) => {
-          event.preventDefault();
-          setDragging(true);
-        }}
-        onDragLeave={() => setDragging(false)}
-        onDrop={onDrop}
-      >
-        <input
-          className="sr-only"
-          type="file"
-          accept="image/*"
-          aria-label="Upload a headshot"
-          onChange={(event) => setFile(event.target.files?.[0])}
+      <picture className="headshot">
+        <source srcSet={publicFile('headshot.webp')} type="image/webp" />
+        <img
+          src={publicFile('headshot.jpg')}
+          alt={`${site.name}, ${site.role}`}
+          width="640"
+          height="640"
+          fetchPriority="high"
+          decoding="async"
         />
-        {photo ? (
-          <img src={photo} alt={`${site.name} headshot`} />
-        ) : (
-          <span className="headshot-empty">
-            <ImagePlus size={20} strokeWidth={1.5} aria-hidden="true" />
-            Add a photo
-          </span>
-        )}
-      </label>
+      </picture>
 
       <h1 className="rail-name">{site.name}</h1>
       <p className="rail-role">{site.role}</p>

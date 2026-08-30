@@ -7,10 +7,11 @@
  * Do not invent papers or projects. Add an item only when you have a real title and link.
  *
  * PROFILE PHOTO
- *   Save your picture as:  public/headshot.jpg
- *   Also accepted in public/: headshot.jpeg, headshot.png, headshot.webp
- *   Refresh the page. The left-rail square loads it automatically.
- *   Click-or-drag on the square is a local preview only and is not saved.
+ *   Put the full-resolution photo at:  originals/headshot-full.jpg
+ *   Then run:  npm run headshot
+ *   That writes the two files the page actually serves, public/headshot.webp
+ *   and public/headshot.jpg, cropped square and sized for the rail. Do not put
+ *   a camera-sized JPEG in public/ directly; it is the whole page weight.
  *
  * RESUME / CV
  *   Save your PDF as:  public/cv.pdf
@@ -51,7 +52,10 @@ export const site = {
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
     { name: 'CV / Resume', href: publicFile('cv.pdf'), icon: 'cv' },
-  ],
+    // The CV row drops out unless public/cv.pdf is really there, so a missing
+    // file shows nothing instead of a link that 404s. __HAS_CV__ is set by
+    // vite.config.js at build time.
+  ].filter((item) => item.icon !== 'cv' || __HAS_CV__),
 };
 
 export const scholarHref = site.contacts.find((item) => item.icon === 'scholar')?.href;
@@ -96,12 +100,15 @@ export const projects = [];
  * Optional titles: several course names on one row, one per line.
  * Use that instead of title.
  * Optional until: end month on the same line, e.g. term: 'Jan 2023', until: 'Aug 2024'.
+ * dateTime: machine-readable start month, 'YYYY-MM'. Search engines and screen
+ * readers use this instead of the display term. For a range, use the start month.
  */
 export const teaching = [
   {
     code: 'CPSC 5580',
     title: 'Automated Decision Systems',
     term: 'Spring 2026',
+    dateTime: '2026-01',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs458/syllabus.html',
   },
@@ -109,6 +116,7 @@ export const teaching = [
     code: 'CPSC 5370',
     title: 'Database Systems',
     term: 'Fall 2025',
+    dateTime: '2025-09',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs437/fall/',
   },
@@ -116,6 +124,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2025',
+    dateTime: '2025-06',
     role: 'Head TA',
     href: 'https://www.addiscoder.com/',
   },
@@ -123,6 +132,7 @@ export const teaching = [
     code: 'CPSC 1700',
     title: 'AI for Future Presidents',
     term: 'Spring 2025',
+    dateTime: '2025-01',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/dsac/blog/2023/12/19/cpsc-170/',
   },
@@ -130,6 +140,7 @@ export const teaching = [
     code: 'CPSC 2230',
     title: 'Data Structures & Programming Techniques',
     term: 'Fall 2024',
+    dateTime: '2024-09',
     role: 'TA',
     href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
   },
@@ -137,6 +148,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2024',
+    dateTime: '2024-06',
     role: 'TA',
     href: 'https://www.addiscoder.com/',
   },
@@ -151,7 +163,7 @@ export const teaching = [
     ],
     term: 'Jan 2023',
     until: 'Aug 2024',
-    dateTime: '2023-01/2024-08',
+    dateTime: '2023-01',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
   },
@@ -159,6 +171,7 @@ export const teaching = [
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
     term: 'Summer 2023',
+    dateTime: '2023-06',
     role: 'TA',
     href: 'https://www.addiscoder.com/',
   },
