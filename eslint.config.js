@@ -27,8 +27,8 @@ export default defineConfig([
     ],
     languageOptions: {
       ecmaVersion: 2020,
-      // __HAS_CV__ is injected by `define` in vite.config.js.
-      globals: { ...globals.browser, __HAS_CV__: 'readonly' },
+      // __CV_FILE__ is injected by `define` in vite.config.js.
+      globals: { ...globals.browser, __CV_FILE__: 'readonly' },
       parserOptions: {
         ecmaVersion: 'latest',
         ecmaFeatures: { jsx: true },

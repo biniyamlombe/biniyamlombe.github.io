@@ -53,7 +53,9 @@ const Sidebar = () => {
       <nav className="rail-list" aria-label="Contact and profiles">
         {site.contacts.map((item) => {
           const Icon = icons[item.icon];
-          const external = item.href.startsWith('http');
+          // The CV is a same-origin file, but open it in a new tab too, so
+          // reading it does not navigate the reader away from the page.
+          const external = item.href.startsWith('http') || item.href.endsWith('.pdf');
           return (
             <a
               key={item.name}

@@ -3,13 +3,18 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// Is there actually a CV to link to?
+// Which CV are we linking to?
 //
-// The sidebar "CV / Resume" row is hidden unless public/cv.pdf exists, so the
-// site can never ship a link to a missing file. Drop the PDF in and the row
-// comes back on the next build with no code change. This is read once at
-// startup, so restart `npm run dev` after adding it.
-const hasCv = existsSync(fileURLToPath(new URL('./public/cv.pdf', import.meta.url)));
+// The file keeps its real name rather than being renamed to cv.pdf, so that a
+// recruiter who saves it ends up with Biniyam_Lombe_AI.pdf in their downloads
+// instead of a generic cv.pdf among fifty others. Change CV_FILE when you swap
+// the PDF, and put the new file in public/.
+//
+// The sidebar "CV / Resume" row is hidden when the file is not there, so the
+// site can never ship a link to a missing PDF. This is read once at startup,
+// so restart `npm run dev` after changing it.
+const CV_FILE = 'Biniyam_Lombe_AI.pdf';
+const hasCv = existsSync(fileURLToPath(new URL(`./public/${CV_FILE}`, import.meta.url)));
 
 // Local server: http://localhost:5173
 // GitHub Pages is the user site: https://biniyamlombe.github.io/
@@ -18,7 +23,7 @@ const hasCv = existsSync(fileURLToPath(new URL('./public/cv.pdf', import.meta.ur
 export default defineConfig({
   plugins: [react()],
   define: {
-    __HAS_CV__: JSON.stringify(hasCv),
+    __CV_FILE__: JSON.stringify(hasCv ? CV_FILE : null),
   },
   server: {
     port: 5173,
