@@ -19,14 +19,27 @@ const SHARED_COUNTER_HREF =
   encodeURIComponent('https://biniyamlombe.github.io/') +
   '&output=json';
 
+/**
+ * localStorage throws, rather than returning null, when a browser has site
+ * storage switched off. Both helpers swallow that: a missing cache costs
+ * nothing, and it must never be able to take the page down.
+ */
 function readCachedCount() {
-  const storedValue = window.localStorage.getItem(COUNT_CACHE_KEY);
-  const currentCount = Number.parseInt(storedValue ?? '0', 10);
-  return Number.isNaN(currentCount) ? 0 : currentCount;
+  try {
+    const storedValue = window.localStorage.getItem(COUNT_CACHE_KEY);
+    const currentCount = Number.parseInt(storedValue ?? '0', 10);
+    return Number.isNaN(currentCount) ? 0 : currentCount;
+  } catch {
+    return 0;
+  }
 }
 
 function cacheCount(count) {
-  window.localStorage.setItem(COUNT_CACHE_KEY, String(count));
+  try {
+    window.localStorage.setItem(COUNT_CACHE_KEY, String(count));
+  } catch {
+    // Storage disabled. The count still shows for this page view.
+  }
 }
 
 function fetchVisitCount() {
