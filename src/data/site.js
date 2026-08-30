@@ -52,7 +52,10 @@ export const site = {
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
     { name: 'CV / Resume', href: publicFile('cv.pdf'), icon: 'cv' },
-  ],
+    // The CV row drops out unless public/cv.pdf is really there, so a missing
+    // file shows nothing instead of a link that 404s. __HAS_CV__ is set by
+    // vite.config.js at build time.
+  ].filter((item) => item.icon !== 'cv' || __HAS_CV__),
 };
 
 export const scholarHref = site.contacts.find((item) => item.icon === 'scholar')?.href;
