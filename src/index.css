@@ -312,6 +312,42 @@ input {
   }
 }
 
+/*
+ * Print and Save-as-PDF. Committee members do print these pages, and a
+ * headless screenshot never scrolls, so anything still waiting on the
+ * observer has to be forced visible here or it comes out blank.
+ */
+@media print {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .grain,
+  .skip-link,
+  .site-footer {
+    display: none !important;
+  }
+
+  .page {
+    width: 100%;
+    padding: 0;
+  }
+
+  .about,
+  .section,
+  .teach-list > li,
+  .news-feed > li,
+  .pub-list > li,
+  .work-list > li {
+    break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+}
+
 .about {
   margin-top: 0;
 }
