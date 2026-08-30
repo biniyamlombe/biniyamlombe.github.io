@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react';
  *
  * Shared across browsers and incognito. GitHub Pages has no server, so the
  * count lives at hitscounter.dev, keyed to https://biniyamlombe.github.io/.
- * If the site is later hosted on Vercel with Upstash, POST /api/visits is
- * tried first.
+ * Build with VITE_VISITS_API=1 to try POST /api/visits first instead, which
+ * only works on a host that runs api/visits.js (Vercel plus Upstash).
  *
  * The whole component renders nothing until a real count above zero arrives,
  * so a slow or failed request shows a plain footer rather than "0 visits".
@@ -48,22 +48,29 @@ function cacheCount(count) {
 function fetchVisitCount() {
   if (!window.__portfolioVisitPromise) {
     window.__portfolioVisitPromise = (async () => {
-      try {
-        const response = await fetch('/api/visits', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-        });
+      // Only try our own backend where one actually exists. On GitHub Pages
+      // api/visits.js is never deployed, so this request would 404 on every
+      // single page load and log a red error in the console -- which anyone
+      // technical who opens devtools would see. Set VITE_VISITS_API=1 at build
+      // time if you move to Vercel and configure Upstash.
+      if (import.meta.env.VITE_VISITS_API) {
+        try {
+          const response = await fetch('/api/visits', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+          });
 
-        if (response.ok) {
-          const data = await response.json();
-          const count = Number(data.count);
-          if (!Number.isNaN(count)) {
-            cacheCount(count);
-            return count;
+          if (response.ok) {
+            const data = await response.json();
+            const count = Number(data.count);
+            if (!Number.isNaN(count)) {
+              cacheCount(count);
+              return count;
+            }
           }
+        } catch {
+          // Backend unreachable. Fall through to the shared counter below.
         }
-      } catch {
-        // GitHub Pages and local Vite do not serve /api/visits.
       }
 
       const response = await fetch(SHARED_COUNTER_HREF);
