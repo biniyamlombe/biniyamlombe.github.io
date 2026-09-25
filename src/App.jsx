@@ -5,11 +5,12 @@ import Projects from './components/Projects';
 import Teaching from './components/Teaching';
 import Publications from './components/Publications';
 import News from './components/News';
+import Education from './components/Education';
 import Footer from './components/Footer';
 
 /**
  * Page shell. Section order on the page is the order of components below:
- * About → News → Interests → Selected work → Publications → Teaching.
+ * About → News → Education → Interests → Selected work → Publications → Teaching.
  *
  * Selected work and Publications render only when their arrays in site.js
  * are non-empty. An empty list shows nothing, same as Teaching.
@@ -29,6 +30,7 @@ function App() {
         <div className="content" id="content">
           <Hero />
           <News />
+          <Education />
           <Research />
           <Projects />
           <Publications />

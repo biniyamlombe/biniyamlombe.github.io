@@ -89,6 +89,50 @@ export const interestsCopy =
   'I work across natural language processing, computer vision, privacy-preserving machine learning, and ML security. That includes language models, multilingual understanding, visual representation learning, differential privacy, federated learning, and adversarial robustness. I also care about turning that research into software that holds up: training pipelines, evaluation, and systems people can actually run.';
 
 /**
+ * EDUCATION
+ *
+ * Newest first. An empty array omits the section.
+ *
+ * {
+ *   school: 'Yale University',
+ *   degree: 'M.S. in Computer Science',
+ *   date: 'May 2026',
+ *   dateTime: '2026-05',
+ *   href: 'https://www.cs.yale.edu/',
+ *   detail: 'Optional honor or note.',
+ * }
+ *
+ * RESEARCH
+ * Add a section only when you have a real lab, advisor, and what you did.
+ * // TODO(Biniyam): fill in
+ * // {
+ * //   group: 'Lab or group',
+ * //   advisor: 'Advisor Name',
+ * //   dates: 'Sep 2024 - May 2025',
+ * //   dateTime: '2024-09',
+ * //   href: 'https://lab.example.edu/',
+ * //   summary: 'One sentence on what you did.',
+ * // }
+ */
+export const education = [
+  {
+    school: 'Yale University',
+    degree: 'M.S. in Computer Science',
+    date: 'May 2026',
+    dateTime: '2026-05',
+    href: 'https://www.cs.yale.edu/',
+  },
+  {
+    school: 'University of Bristol',
+    degree: 'B.Eng. in Electrical and Electronic Engineering',
+    date: 'Jun 2022',
+    dateTime: '2022-06',
+    href: 'https://www.bristol.ac.uk/',
+    detail: 'First Class Honours.',
+  },
+];
+
+/**
  * SELECTED WORK
  *
  * Add objects to this array for SWE / ML hiring. Do not invent projects.

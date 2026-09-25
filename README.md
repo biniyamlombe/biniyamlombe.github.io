@@ -17,14 +17,14 @@ Open [http://localhost:5173](http://localhost:5173). That port is fixed; stop an
 
 Most copy lives in [`src/data/site.js`](src/data/site.js). Save the file and the page reloads.
 
-- **Name, links, interests, news, papers, selected work, teaching:** [`src/data/site.js`](src/data/site.js)
+- **Name, links, interests, news, education, papers, selected work, teaching:** [`src/data/site.js`](src/data/site.js)
 - **About:** [`src/components/Hero.jsx`](src/components/Hero.jsx)
 - **Colors and layout:** [`src/index.css`](src/index.css)
 - **Tab title, search description, link previews:** [`src/data/site.js`](src/data/site.js) (`description`, `summary`, `url`, `alumniOf`, `knowsAbout`, and the profile links). [`index.html`](index.html) only marks where Vite injects them.
 - **Photo:** see below
 - **Resume:** see below
 
-Comments in `site.js` show how to add a paper, a project, a course, or a news item. Hosted PDFs go in `public/papers/`. Selected work, Publications, and Teaching are omitted while their arrays are empty, so the page never shows a “will be listed here” stub. GitHub and Google Scholar stay in the sidebar either way.
+Comments in `site.js` show how to add a paper, a project, a course, a degree, or a news item. Hosted PDFs go in `public/papers/`. Selected work, Publications, Education, and Teaching are omitted while their arrays are empty, so the page never shows a “will be listed here” stub. GitHub and Google Scholar stay in the sidebar either way.
 
 ### Photo
 
