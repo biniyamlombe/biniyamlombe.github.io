@@ -100,11 +100,6 @@ export const interestsCopy =
  *   dateTime: '2026-05',
  *   href: 'https://www.cs.yale.edu/',
  *   detail: 'Optional honor or note.',
- *   thesis: {
- *     title: 'Final-year project title',
- *     advisor: 'Supervisor Name',
- *     href: 'https://example.edu/people/supervisor',
- *   },
  * }
  *
  * RESEARCH
@@ -134,11 +129,6 @@ export const education = [
     dateTime: '2022-06',
     href: 'https://www.bristol.ac.uk/',
     detail: 'First Class Honours.',
-    thesis: {
-      title: 'Design and Investigation of a DC-DC Boost Converter for a Solar Photovoltaic Application',
-      advisor: 'Geoffrey Hilton',
-      href: 'https://www.bristol.ac.uk/people/person/Geoffrey-Hilton-12bfd9f5-d04f-477a-9ab4-dff595fa14a0/',
-    },
   },
 ];
 

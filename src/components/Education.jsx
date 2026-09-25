@@ -27,24 +27,6 @@ const Education = () => {
                 {item.degree}
                 {item.detail && <span className="ed-detail">{item.detail}</span>}
               </span>
-              {item.thesis && (
-                <p className="ed-thesis">
-                  Thesis: {item.thesis.title}
-                  {item.thesis.advisor && (
-                    <>
-                      {', supervised by '}
-                      {item.thesis.href ? (
-                        <a href={item.thesis.href} target="_blank" rel="noopener noreferrer">
-                          {item.thesis.advisor}
-                        </a>
-                      ) : (
-                        item.thesis.advisor
-                      )}
-                    </>
-                  )}
-                  .
-                </p>
-              )}
             </li>
           ))}
         </ul>
