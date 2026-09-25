@@ -47,9 +47,8 @@ export const site = {
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },
     { name: 'biniyam.lombe@yale.edu', href: 'mailto:biniyam.lombe@yale.edu', icon: 'mail' },
-    // TODO(Biniyam): fill in your Google Scholar profile id, then uncomment.
-    // A name search is not a profile, and sameAs must not point at one.
-    // { name: 'Google Scholar', href: 'https://scholar.google.com/citations?user=YOUR_ID', icon: 'scholar' },
+    // Name search, not a citations?user= profile. Replace this href if you create a profile.
+    { name: 'Google Scholar', href: 'https://scholar.google.com/scholar?q=Biniyam+Lombe', icon: 'scholar' },
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
