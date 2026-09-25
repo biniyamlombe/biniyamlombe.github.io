@@ -20,7 +20,7 @@ Most copy lives in [`src/data/site.js`](src/data/site.js). Save the file and the
 - **Name, links, interests, news, papers, selected work, teaching:** [`src/data/site.js`](src/data/site.js)
 - **About:** [`src/components/Hero.jsx`](src/components/Hero.jsx)
 - **Colors and layout:** [`src/index.css`](src/index.css)
-- **Tab title, search description, link previews:** [`index.html`](index.html)
+- **Tab title, search description, link previews:** [`src/data/site.js`](src/data/site.js) (`description`, `summary`, `url`, `alumniOf`, `knowsAbout`, and the profile links). [`index.html`](index.html) only marks where Vite injects them.
 - **Photo:** see below
 - **Resume:** see below
 
@@ -51,9 +51,9 @@ not there.
 
 ### Metadata
 
-`index.html` carries the search description, the link preview (Open Graph / Twitter card), and a JSON-LD `Person` block that ties this page to your Scholar, GitHub, and LinkedIn profiles. If you change your bio, affiliation, or links in `site.js`, update `index.html` to match — it is plain HTML and cannot read from `site.js`.
+The search description, the link preview (Open Graph / Twitter card), and the JSON-LD `Person` block are generated from [`src/data/site.js`](src/data/site.js) when the dev server or the production build runs. Edit that file, then restart `npm run dev` if the head tags do not refresh.
 
-The site URL is hardcoded in `index.html`, `public/robots.txt`, and `public/sitemap.xml`. Change all three together if you move off `biniyamlombe.github.io`.
+The site URL lives in `site.url`, `public/robots.txt`, and `public/sitemap.xml`. Change all three together if you move off `biniyamlombe.github.io`.
 
 ## Deploy
 

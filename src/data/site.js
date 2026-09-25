@@ -37,6 +37,26 @@ export const site = {
   mapsUrl: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9',
   availability: 'Open to PhD and SWE / ML roles',
   schoolHref: 'https://www.cs.yale.edu/',
+  // Public site origin. Also update public/robots.txt and public/sitemap.xml if this changes.
+  url: 'https://biniyamlombe.github.io/',
+  // Search snippet. The link-preview blurb is `summary`.
+  description:
+    'Biniyam Lombe, M.S. in Computer Science from Yale. Trustworthy machine learning, privacy, and security. Open to PhD programs for Fall 2027 and SWE / ML roles.',
+  summary:
+    'Trustworthy machine learning, privacy, and security. Open to PhD programs for Fall 2027 and SWE / ML roles.',
+  alumniOf: [
+    { name: 'Yale University', url: 'https://www.cs.yale.edu/' },
+    { name: 'University of Bristol', url: 'https://www.bristol.ac.uk/' },
+  ],
+  knowsAbout: [
+    'Machine Learning',
+    'Natural Language Processing',
+    'Computer Vision',
+    'Differential Privacy',
+    'Federated Learning',
+    'Adversarial Robustness',
+    'Machine Learning Security',
+  ],
   /**
    * Left-rail links. Add a row by copying an object below.
    * icon must be one of: map, mail, scholar, github, linkedin, twitter, cv
@@ -56,9 +76,11 @@ export const site = {
     // The CV row appears only when the PDF is really in public/, so a missing
     // file shows nothing instead of a link that 404s. The filename lives in
     // CV_FILE in vite.config.js, which sets __CV_FILE__ at build time.
-    ...(__CV_FILE__
-      ? [{ name: 'CV / Resume', href: publicFile(__CV_FILE__), icon: 'cv' }]
-      : []),
+    // __CV_FILE__ is injected by Vite. The typeof check lets vite.config.js
+    // import this module in Node, where that binding does not exist.
+    ...(typeof __CV_FILE__ === 'undefined' || !__CV_FILE__
+      ? []
+      : [{ name: 'CV / Resume', href: publicFile(__CV_FILE__), icon: 'cv' }]),
   ],
 };
 
