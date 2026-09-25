@@ -11,6 +11,9 @@ import Footer from './components/Footer';
  * Page shell. Section order on the page is the order of components below:
  * About → News → Interests → Selected work → Publications → Teaching.
  *
+ * Selected work and Publications render only when their arrays in site.js
+ * are non-empty. An empty list shows nothing, same as Teaching.
+ *
  * That order is meant for both PhD committees and SWE / ML hiring.
  *
  * To add a section: create src/components/YourSection.jsx, import it here,

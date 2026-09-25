@@ -1,9 +1,9 @@
 import Reveal from './Reveal';
-import { publications, scholarHref, site } from '../data/site';
+import { publications, site } from '../data/site';
 
 /**
  * Publications list. Add papers in src/data/site.js (`publications`).
- * This file only renders them. Empty array → Scholar fallback text below.
+ * This file only renders them. An empty array renders nothing, same as Teaching.
  * Years are sorted newest first here; you do not need to sort the data file.
  */
 function authorName(name) {
@@ -25,20 +25,13 @@ function formatAuthors(authors) {
 }
 
 const Publications = () => {
+  if (publications.length === 0) return null;
+
   return (
     <section className="section" aria-labelledby="publications-heading">
       <Reveal>
         <h2 id="publications-heading">Publications</h2>
-        {publications.length === 0 ? (
-          <p className="prose">
-            Papers will be listed here as they appear. You can also find me on{' '}
-            <a href={scholarHref} target="_blank" rel="noopener noreferrer">
-              Google Scholar
-            </a>
-            .
-          </p>
-        ) : (
-          <ol className="pub-list">
+        <ol className="pub-list">
             {[...publications]
               .sort((a, b) => Number(b.year) - Number(a.year))
               .map((paper) => {
@@ -75,8 +68,7 @@ const Publications = () => {
                   </li>
                 );
               })}
-          </ol>
-        )}
+        </ol>
       </Reveal>
     </section>
   );

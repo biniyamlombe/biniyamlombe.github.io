@@ -60,9 +60,6 @@ export const site = {
   ],
 };
 
-export const scholarHref = site.contacts.find((item) => item.icon === 'scholar')?.href;
-export const githubHref = site.contacts.find((item) => item.icon === 'github')?.href;
-
 /** Interests paragraph. Replace this string to change that section. */
 export const interestsCopy =
   'I work across natural language processing, computer vision, privacy-preserving machine learning, and ML security. That includes language models, multilingual understanding, visual representation learning, differential privacy, federated learning, and adversarial robustness. I also care about turning that research into software that holds up: training pipelines, evaluation, and systems people can actually run.';
@@ -71,7 +68,7 @@ export const interestsCopy =
  * SELECTED WORK
  *
  * Add objects to this array for SWE / ML hiring. Do not invent projects.
- * If the array stays empty, the page shows a GitHub fallback instead.
+ * If the array stays empty, the Selected work section is omitted. GitHub stays in the sidebar.
  *
  * {
  *   title: 'Project name',
@@ -183,7 +180,7 @@ export const teaching = [
  * PUBLICATIONS
  *
  * Add objects to this array. Newest year is shown first automatically.
- * If the array stays empty, the page shows a Google Scholar fallback instead.
+ * If the array stays empty, the Publications section is omitted. Scholar stays in the sidebar.
  *
  * Copy this object, fill it in, and paste it into the array:
  *

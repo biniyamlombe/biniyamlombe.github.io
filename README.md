@@ -24,7 +24,7 @@ Most copy lives in [`src/data/site.js`](src/data/site.js). Save the file and the
 - **Photo:** see below
 - **Resume:** see below
 
-Comments in `site.js` show how to add a paper, a project, a course, or a news item. Hosted PDFs go in `public/papers/`.
+Comments in `site.js` show how to add a paper, a project, a course, or a news item. Hosted PDFs go in `public/papers/`. Selected work, Publications, and Teaching are omitted while their arrays are empty, so the page never shows a “will be listed here” stub. GitHub and Google Scholar stay in the sidebar either way.
 
 ### Photo
 

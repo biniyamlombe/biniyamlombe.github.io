@@ -1,25 +1,18 @@
 import Reveal from './Reveal';
-import { githubHref, projects } from '../data/site';
+import { projects } from '../data/site';
 
 /**
  * Selected work. Add projects in src/data/site.js (`projects`).
- * Empty array → GitHub fallback text below.
+ * An empty array renders nothing, same as Teaching.
  */
 const Projects = () => {
+  if (projects.length === 0) return null;
+
   return (
     <section className="section" aria-labelledby="work-heading">
       <Reveal>
         <h2 id="work-heading">Selected work</h2>
-        {projects.length === 0 ? (
-          <p className="prose">
-            Selected systems and products will be listed here. You can also find code on{' '}
-            <a href={githubHref} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </a>
-            .
-          </p>
-        ) : (
-          <ul className="work-list">
+        <ul className="work-list">
             {projects.map((project) => {
               const TitleTag = project.href ? 'a' : 'span';
               return (
@@ -53,8 +46,7 @@ const Projects = () => {
                 </li>
               );
             })}
-          </ul>
-        )}
+        </ul>
       </Reveal>
     </section>
   );
