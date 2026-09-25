@@ -28,15 +28,16 @@
     <!-- font-preload -->
 
     <!--
-      Apply a saved Light or Dark choice before paint. Absent means System.
-      Keep the storage key in sync with src/components/ThemeSwitch.jsx.
+      The page starts light. A saved Dark or System choice is applied before
+      paint. Keep the storage key in sync with src/components/ThemeSwitch.jsx.
     -->
     <script>
       (function () {
         try {
           var theme = localStorage.getItem('theme');
-          if (theme !== 'light' && theme !== 'dark') return;
+          if (theme !== 'dark' && theme !== 'system') theme = 'light';
           document.documentElement.setAttribute('data-theme', theme);
+          if (theme === 'system') return;
           var meta = document.createElement('meta');
           meta.name = 'theme-color';
           meta.setAttribute('data-override', '');

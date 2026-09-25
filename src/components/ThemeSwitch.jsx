@@ -1,20 +1,20 @@
 import { useState } from 'react';
 
 /**
- * Light, Dark, or System. System removes the attribute so the CSS media query
- * keeps following the operating system. The storage key matches the inline
- * script in index.html, which applies a saved choice before paint.
+ * Light, Dark, or System. Light is the default. System follows the operating
+ * system. The storage key matches the inline script in index.html, which
+ * applies a saved choice before paint.
  */
 const STORAGE_KEY = 'theme';
 const OPTIONS = [
-  { value: 'system', label: 'System' },
   { value: 'light', label: 'Light' },
   { value: 'dark', label: 'Dark' },
+  { value: 'system', label: 'System' },
 ];
 
 const readTheme = () => {
   const value = document.documentElement.getAttribute('data-theme');
-  return value === 'light' || value === 'dark' ? value : 'system';
+  return value === 'dark' || value === 'system' ? value : 'light';
 };
 
 const syncThemeColor = (theme) => {
@@ -36,13 +36,8 @@ const ThemeSwitch = () => {
 
   const choose = (next) => {
     setTheme(next);
-    if (next === 'system') {
-      localStorage.removeItem(STORAGE_KEY);
-      document.documentElement.removeAttribute('data-theme');
-    } else {
-      localStorage.setItem(STORAGE_KEY, next);
-      document.documentElement.setAttribute('data-theme', next);
-    }
+    localStorage.setItem(STORAGE_KEY, next);
+    document.documentElement.setAttribute('data-theme', next);
     syncThemeColor(next);
   };
 

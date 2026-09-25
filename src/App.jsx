@@ -7,6 +7,7 @@ import Publications from './components/Publications';
 import News from './components/News';
 import Education from './components/Education';
 import Footer from './components/Footer';
+import ThemeSwitch from './components/ThemeSwitch';
 
 /**
  * Page shell. Section order on the page is the order of components below:
@@ -26,6 +27,7 @@ function App() {
       <a className="skip-link" href="#content">Skip to content</a>
       <div className="grain" aria-hidden="true" />
       <div className="page">
+        <ThemeSwitch />
         <Sidebar />
         <div className="content" id="content" tabIndex={-1}>
           <Hero />
