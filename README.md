@@ -63,4 +63,4 @@ Pushes to `main` go live on GitHub Pages. The visit count is shared across brows
 
 ## Stack
 
-React, Vite, and CSS. [Newsreader](https://fontsource.org/fonts/newsreader) and [Outfit](https://fontsource.org/fonts/outfit) via Fontsource, and Lucide for icons. Scroll-in fades are ~40 lines of `IntersectionObserver` in [`src/components/Reveal.jsx`](src/components/Reveal.jsx) plus a `.reveal` rule in the CSS — no animation library.
+React, Vite, and CSS. [Newsreader](https://fontsource.org/fonts/newsreader) and [Outfit](https://fontsource.org/fonts/outfit) via Fontsource, and Lucide for icons. The production build preloads the three latin files an English page actually uses. Scroll-in fades are ~40 lines of `IntersectionObserver` in [`src/components/Reveal.jsx`](src/components/Reveal.jsx) plus a `.reveal` rule in the CSS — no animation library. The grain overlay is omitted when the reader asks for reduced motion, and in dark mode.

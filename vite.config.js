@@ -145,9 +145,26 @@ function siteMeta() {
 
   return {
     name: 'site-meta',
-    transformIndexHtml(html) {
-      const block = tags.map((tag) => `    ${tag}`).join('\n');
-      return html.replace(/\n[ \t]*<!-- site-meta -->/, `\n${block}`);
+    transformIndexHtml: {
+      order: 'post',
+      handler(html, ctx) {
+        const block = tags.map((tag) => `    ${tag}`).join('\n');
+        const withMeta = html.replace(/\n[ \t]*<!-- site-meta -->/, `\n${block}`);
+        const wanted = [
+          'newsreader-latin-wght-normal',
+          'newsreader-latin-wght-italic',
+          'outfit-latin-wght-normal',
+        ];
+        const fonts = ctx.bundle
+          ? Object.values(ctx.bundle)
+            .filter((file) => file.type === 'asset' && wanted.some((name) => file.fileName.includes(name)))
+            .sort((a, b) => wanted.findIndex((name) => a.fileName.includes(name)) - wanted.findIndex((name) => b.fileName.includes(name)))
+          : [];
+        const links = fonts
+          .map((file) => `    <link rel="preload" as="font" type="font/woff2" href="/${file.fileName}" crossorigin />`)
+          .join('\n');
+        return withMeta.replace(/\n[ \t]*<!-- font-preload -->/, links ? `\n${links}` : '');
+      },
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
