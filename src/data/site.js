@@ -14,10 +14,10 @@
  *   a camera-sized JPEG in public/ directly; it is the whole page weight.
  *
  * RESUME / CV
- *   Save your PDF as:  public/cv.pdf
- *   The sidebar "CV" row already uses publicFile('cv.pdf').
- *   If you name it resume.pdf instead, put it at public/resume.pdf and
- *   change that call to publicFile('resume.pdf').
+ *   The filename is CV_FILE in vite.config.js, currently
+ *   public/Biniyam_Lombe_AI.pdf. Drop the new PDF in public/, update
+ *   CV_FILE, and restart the dev server. The sidebar row is hidden if
+ *   that file is missing.
  */
 
 /** Files in public/. Uses Vite BASE_URL so local and GitHub Pages stay in sync. */
@@ -42,7 +42,8 @@ export const site = {
    * icon must be one of: map, mail, scholar, github, linkedin, twitter, cv
    * (To support a new icon name, also add it to the `icons` map in Sidebar.jsx.)
    *
-   * Resume/CV: public/cv.pdf  →  href: publicFile('cv.pdf')
+   * Resume/CV: set CV_FILE in vite.config.js. The row below is added only
+   * when that file exists in public/.
    */
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },

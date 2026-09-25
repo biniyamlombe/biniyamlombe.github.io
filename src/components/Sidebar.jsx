@@ -9,8 +9,8 @@ import { publicFile, site } from '../data/site';
  *   264px the rail draws. Keep the full-resolution original in originals/ and
  *   regenerate the two served files when you swap the photo — see README.
  *
- * Resume: put the file in public/ as cv.pdf. The CV row in site.contacts
- *   already uses publicFile('cv.pdf').
+ * Resume: the filename is CV_FILE in vite.config.js. The CV row in
+ *   site.contacts is added only when that file exists in public/.
  *
  * Name, role, and links: src/data/site.js
  *
