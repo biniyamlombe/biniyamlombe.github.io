@@ -50,7 +50,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     color-scheme: dark;
     --surface: #161412;
     --surface-2: #221f1c;
@@ -65,13 +65,53 @@
     --focus: #d98978;
   }
 
-  .grain {
+  :root:not([data-theme='light']) .grain {
     display: none;
   }
 
-  ::selection {
+  :root:not([data-theme='light']) ::selection {
     color: var(--surface);
   }
+}
+
+/*
+ * A saved choice beats the system setting. These tokens match the blocks above.
+ * The inline script in index.html sets data-theme before paint.
+ */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #161412;
+  --surface-2: #221f1c;
+  --text: #f3efe9;
+  --text-muted: #c4bbb2;
+  --text-faint: #a89f96;
+  --accent: #d98978;
+  --accent-soft: #3c2a26;
+  --line: rgba(243, 239, 233, 0.14);
+  --line-strong: rgba(243, 239, 233, 0.24);
+  --focus: #d98978;
+}
+
+:root[data-theme='dark'] .grain {
+  display: none;
+}
+
+:root[data-theme='dark'] ::selection {
+  color: var(--surface);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --surface: #ffffff;
+  --surface-2: #f3f3f3;
+  --text: #171615;
+  --text-muted: #5c5853;
+  --text-faint: #75706a;
+  --accent: #9b3d32;
+  --accent-soft: #f6e8e2;
+  --line: rgba(23, 22, 21, 0.12);
+  --line-strong: rgba(23, 22, 21, 0.2);
+  --focus: #9b3d32;
 }
 
 *,
@@ -316,6 +356,54 @@ input {
   color: var(--accent);
 }
 
+.theme-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  width: 100%;
+  margin: 0.7rem 0 0;
+  padding: 0;
+  border: 0;
+  min-inline-size: 0;
+}
+
+.theme-switch label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.22rem 0.55rem;
+  border-radius: var(--radius-pill);
+  color: var(--text-faint);
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 550;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  cursor: pointer;
+}
+
+.theme-switch input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.theme-switch label:has(input:checked) {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.theme-switch label:has(input:focus-visible) {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
 .content {
   min-width: 0;
   padding-top: 0;
@@ -359,7 +447,8 @@ input {
   .grain,
   .skip-link,
   .visits,
-  .footer-rule {
+  .footer-rule,
+  .theme-switch {
     display: none !important;
   }
 

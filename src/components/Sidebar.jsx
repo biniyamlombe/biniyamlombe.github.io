@@ -1,5 +1,6 @@
 import { FileText, Github, GraduationCap, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
 import { publicFile, site } from '../data/site';
+import ThemeSwitch from './ThemeSwitch';
 
 /**
  * Left identity rail: photo, name, role, status, contact list.
@@ -49,6 +50,8 @@ const Sidebar = () => {
         <span className="status-dot" aria-hidden="true" />
         {site.availability}
       </p>
+
+      <ThemeSwitch />
 
       <nav className="rail-list" aria-label="Contact and profiles">
         {site.contacts.map((item) => {

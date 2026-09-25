@@ -26,6 +26,25 @@
       build, after the filenames are hashed. Dev leaves the marker empty.
     -->
     <!-- font-preload -->
+
+    <!--
+      Apply a saved Light or Dark choice before paint. Absent means System.
+      Keep the storage key in sync with src/components/ThemeSwitch.jsx.
+    -->
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme !== 'light' && theme !== 'dark') return;
+          document.documentElement.setAttribute('data-theme', theme);
+          var meta = document.createElement('meta');
+          meta.name = 'theme-color';
+          meta.setAttribute('data-override', '');
+          meta.content = theme === 'dark' ? '#161412' : '#ffffff';
+          document.head.appendChild(meta);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
