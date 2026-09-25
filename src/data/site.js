@@ -47,7 +47,9 @@ export const site = {
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },
     { name: 'biniyam.lombe@yale.edu', href: 'mailto:biniyam.lombe@yale.edu', icon: 'mail' },
-    { name: 'Google Scholar', href: 'https://scholar.google.com/scholar?q=Biniyam+Lombe', icon: 'scholar' },
+    // TODO(Biniyam): fill in your Google Scholar profile id, then uncomment.
+    // A name search is not a profile, and sameAs must not point at one.
+    // { name: 'Google Scholar', href: 'https://scholar.google.com/citations?user=YOUR_ID', icon: 'scholar' },
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
     { name: 'LinkedIn', href: 'https://www.linkedin.com/in/biniyamlombe', icon: 'linkedin' },
     { name: 'Twitter', href: 'https://x.com/biniyamlombe', icon: 'twitter' },
@@ -109,7 +111,7 @@ export const teaching = [
     term: 'Spring 2026',
     dateTime: '2026-01',
     role: 'TA',
-    href: 'https://zoo.cs.yale.edu/classes/cs458/syllabus.html',
+    href: 'https://zoo.cs.yale.edu/classes/cs458/index.html',
   },
   {
     code: 'CPSC 5370',
@@ -133,7 +135,7 @@ export const teaching = [
     term: 'Spring 2025',
     dateTime: '2025-01',
     role: 'TA',
-    href: 'https://zoo.cs.yale.edu/dsac/blog/2023/12/19/cpsc-170/',
+    href: 'https://catalog.yale.edu/ycps/courses/cpsc/',
   },
   {
     code: 'CPSC 2230',
@@ -141,7 +143,7 @@ export const teaching = [
     term: 'Fall 2024',
     dateTime: '2024-09',
     role: 'TA',
-    href: 'https://zoo.cs.yale.edu/classes/cs223/f2022/index.html',
+    // TODO(Biniyam): fill in the Fall 2024 course page. The old link was the Fall 2022 site.
   },
   {
     code: 'AddisCoder',
