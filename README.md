@@ -55,6 +55,8 @@ The search description, the link preview (Open Graph / Twitter card), and the JS
 
 The site URL lives in `site.url`, `public/robots.txt`, and `public/sitemap.xml`. Change all three together if you move off `biniyamlombe.github.io`.
 
+Unknown addresses on GitHub Pages use [`public/404.html`](public/404.html). It is a static page, separate from the React app, so a missing PDF or path still looks like this site.
+
 ## Deploy
 
 Pushes to `main` go live on GitHub Pages. The visit count is shared across browsers.
