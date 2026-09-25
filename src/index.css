@@ -316,6 +316,10 @@ input {
  * headless screenshot never scrolls, so anything still waiting on the
  * observer has to be forced visible here or it comes out blank.
  */
+@page {
+  margin: 0.7in;
+}
+
 @media print {
   .reveal {
     opacity: 1 !important;
@@ -324,13 +328,24 @@ input {
 
   .grain,
   .skip-link,
-  .site-footer {
+  .visits,
+  .footer-rule {
     display: none !important;
   }
 
   .page {
+    display: block;
     width: 100%;
     padding: 0;
+  }
+
+  .rail {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+
+  .headshot {
+    max-width: 2.25in;
   }
 
   .about,
@@ -345,6 +360,13 @@ input {
 
   a {
     text-decoration: underline;
+  }
+
+  a[href^="http"]::after,
+  a[href^="mailto:"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    word-break: break-all;
   }
 }
 
