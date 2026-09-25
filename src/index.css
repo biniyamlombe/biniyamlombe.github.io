@@ -719,6 +719,16 @@ a.teach-code {
   letter-spacing: 0.01em;
 }
 
+.ed-thesis {
+  grid-column: 1 / -1;
+  margin: 0.2rem 0 0;
+  color: var(--text-muted);
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 450;
+  line-height: 1.45;
+}
+
 @media (max-width: 699px) {
   .ed-list > li {
     grid-template-columns: 1fr;
