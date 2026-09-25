@@ -53,7 +53,7 @@ not there.
 
 The search description, the link preview (Open Graph / Twitter card), and the JSON-LD `Person` block are generated from [`src/data/site.js`](src/data/site.js) when the dev server or the production build runs. Edit that file, then restart `npm run dev` if the head tags do not refresh.
 
-The site URL lives in `site.url`, `public/robots.txt`, and `public/sitemap.xml`. Change all three together if you move off `biniyamlombe.github.io`.
+The site URL lives in `site.url` and `public/robots.txt`. The sitemap is written at build time from `site.url`, with `lastmod` set to that day’s date. Change `site.url` and `robots.txt` together if you move off `biniyamlombe.github.io`.
 
 Unknown addresses on GitHub Pages use [`public/404.html`](public/404.html). It is a static page, separate from the React app, so a missing PDF or path still looks like this site.
 

@@ -84,11 +84,35 @@ function siteMeta() {
     `<script type="application/ld+json">\n${json}\n    </script>`,
   ].filter(Boolean);
 
+  const sitemapXml = () => {
+    const lastmod = new Date().toISOString().slice(0, 10);
+    return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${pageUrl}</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+  };
+
   return {
     name: 'site-meta',
     transformIndexHtml(html) {
       const block = tags.map((tag) => `    ${tag}`).join('\n');
       return html.replace(/\n[ \t]*<!-- site-meta -->/, `\n${block}`);
+    },
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        if (req.url?.split('?')[0] !== '/sitemap.xml') return next();
+        res.setHeader('Content-Type', 'application/xml');
+        res.end(sitemapXml());
+      });
+    },
+    generateBundle() {
+      this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemapXml() });
     },
   };
 }
