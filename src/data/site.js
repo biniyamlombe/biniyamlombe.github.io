@@ -167,8 +167,8 @@ export const projects = [];
  * Optional titles: several course names on one row, one per line.
  * Use that instead of title.
  * Optional until: end month on the same line, e.g. term: 'Jan 2023', until: 'Aug 2024'.
- * dateTime: machine-readable start month, 'YYYY-MM'. Search engines and screen
- * readers use this instead of the display term. For a range, use the start month.
+ * dateTime: machine-readable start month, 'YYYY-MM'. For a range, also set
+ * untilDateTime to the end month, e.g. untilDateTime: '2024-08'.
  */
 export const teaching = [
   {
@@ -231,6 +231,7 @@ export const teaching = [
     term: 'Jan 2023',
     until: 'Aug 2024',
     dateTime: '2023-01',
+    untilDateTime: '2024-08',
     role: 'Lecturer',
     href: 'https://www.uwe.ac.uk/courses/international-study/international-college',
   },
@@ -275,6 +276,7 @@ export const publications = [];
  * Add items at the top of this array (newest first).
  *
  * date: short label shown in terracotta, e.g. 'Aug 2026'
+ * dateTime: machine-readable month, 'YYYY-MM'
  * parts: the main sentence, split so links can sit in the middle
  *   { text: 'plain words' }
  *   { text: 'Yale', href: 'https://www.cs.yale.edu/' }
@@ -284,6 +286,7 @@ export const publications = [];
  *
  * {
  *   date: 'Sep 2026',
+ *   dateTime: '2026-09',
  *   parts: [
  *     { text: 'Paper accepted at ' },
  *     { text: 'NeurIPS', href: 'https://neurips.cc/' },
@@ -295,6 +298,7 @@ export const publications = [];
 export const news = [
   {
     date: 'Aug 2026',
+    dateTime: '2026-08',
     parts: [
       { text: 'Applying to CS PhD programs for Fall 2027 and to SWE / ML roles. Happy to talk about trustworthy ML, privacy, and security.' },
     ],
@@ -304,6 +308,7 @@ export const news = [
   },
   {
     date: 'May 2026',
+    dateTime: '2026-05',
     parts: [
       { text: 'Completed my M.S. in Computer Science at ' },
       { text: 'Yale', href: 'https://www.cs.yale.edu/' },
@@ -315,6 +320,7 @@ export const news = [
   },
   {
     date: 'Feb 2026',
+    dateTime: '2026-02',
     parts: [
       { text: 'Interviewed by ' },
       { text: 'Deutsche Welle', href: 'https://www.dw.com/am/%E1%89%A2%E1%8A%92%E1%8B%AB%E1%88%9D-%E1%88%8E%E1%88%8A%E1%88%B6/a-75826516' },
@@ -325,6 +331,7 @@ export const news = [
   },
   {
     date: 'Jun 2022',
+    dateTime: '2022-06',
     parts: [
       { text: 'Completed my B.Eng. in Electrical and Electronic Engineering at the ' },
       { text: 'University of Bristol', href: 'https://www.bristol.ac.uk/' },

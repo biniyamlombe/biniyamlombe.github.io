@@ -57,6 +57,7 @@ const Publications = () => {
                           <a
                             key={link.label}
                             href={link.href}
+                            aria-label={`${link.label}, ${paper.title}`}
                             target={link.href.startsWith('http') ? '_blank' : undefined}
                             rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                           >

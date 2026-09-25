@@ -25,9 +25,15 @@ const Teaching = () => {
                 key={`${course.code}-${course.term}`}
                 className={names.length > 1 ? 'has-stack' : undefined}
               >
-                <time dateTime={course.dateTime}>
-                  {course.until ? `${course.term} - ${course.until}` : course.term}
-                </time>
+                <span className="teach-when">
+                  <time dateTime={course.dateTime}>{course.term}</time>
+                  {course.until && (
+                    <>
+                      {' - '}
+                      <time dateTime={course.untilDateTime}>{course.until}</time>
+                    </>
+                  )}
+                </span>
                 {course.href ? (
                   <a
                     className="teach-code"

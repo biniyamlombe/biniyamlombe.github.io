@@ -582,7 +582,7 @@ input {
   border-bottom: 1px solid var(--line);
 }
 
-.teach-list time {
+.teach-when {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.8rem;
@@ -651,7 +651,7 @@ a.teach-code {
     grid-template-columns: 1fr auto;
   }
 
-  .teach-list time,
+  .teach-when,
   .teach-code,
   .teach-title {
     grid-column: 1;

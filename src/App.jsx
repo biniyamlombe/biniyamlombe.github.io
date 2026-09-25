@@ -27,7 +27,7 @@ function App() {
       <div className="grain" aria-hidden="true" />
       <div className="page">
         <Sidebar />
-        <div className="content" id="content">
+        <div className="content" id="content" tabIndex={-1}>
           <Hero />
           <News />
           <Education />

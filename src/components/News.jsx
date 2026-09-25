@@ -14,7 +14,7 @@ const News = () => {
           {news.map((item) => (
             <li key={item.date + item.parts[0].text}>
               <p>
-                <time>{item.date}</time>
+                <time dateTime={item.dateTime}>{item.date}</time>
                 {item.parts.map((part) => (
                   part.href ? (
                     <a key={part.text} href={part.href} target="_blank" rel="noopener noreferrer">
