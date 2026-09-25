@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { Resvg } from '@resvg/resvg-js';
 import { site } from './src/data/site.js';
 
 // Which CV are we linking to?
@@ -21,6 +22,22 @@ const hasCv = existsSync(fileURLToPath(new URL(`./public/${CV_FILE}`, import.met
 // GitHub Pages is the user site: https://biniyamlombe.github.io/
 // strictPort: fail instead of hopping to 5174 if 5173 is taken.
 // usePolling: pick up file saves from the editor more reliably.
+function wrapLines(text, maxChars) {
+  const lines = [];
+  let current = '';
+  for (const word of String(text).split(/\s+/)) {
+    const next = current ? `${current} ${word}` : word;
+    if (next.length > maxChars && current) {
+      lines.push(current);
+      current = word;
+    } else {
+      current = next;
+    }
+  }
+  if (current) lines.push(current);
+  return lines.slice(0, 3);
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll('&', '&amp;')
@@ -32,7 +49,8 @@ function escapeHtml(value) {
 function siteMeta() {
   const origin = site.url.replace(/\/$/, '');
   const pageUrl = `${origin}/`;
-  const image = `${origin}/headshot.jpg`;
+  const image = `${origin}/og.png`;
+  const portrait = `${origin}/headshot.jpg`;
   const title = `${site.name} — ${site.role}`;
   const familyName = site.name.startsWith(`${site.shortName} `)
     ? site.name.slice(site.shortName.length).trim()
@@ -51,7 +69,7 @@ function siteMeta() {
     givenName: site.shortName,
     familyName,
     url: pageUrl,
-    image,
+    image: portrait,
     email: `mailto:${site.email}`,
     alumniOf: site.alumniOf.map((school) => ({
       '@type': 'CollegeOrUniversity',
@@ -73,16 +91,43 @@ function siteMeta() {
     `<meta property="og:description" content="${escapeHtml(site.summary)}" />`,
     `<meta property="og:url" content="${escapeHtml(pageUrl)}" />`,
     `<meta property="og:image" content="${escapeHtml(image)}" />`,
-    `<meta property="og:image:width" content="640" />`,
-    `<meta property="og:image:height" content="640" />`,
-    `<meta property="og:image:alt" content="${escapeHtml(site.name)}" />`,
+    `<meta property="og:image:width" content="1200" />`,
+    `<meta property="og:image:height" content="630" />`,
+    `<meta property="og:image:alt" content="${escapeHtml(title)}" />`,
     `<meta property="og:locale" content="en_US" />`,
     `<meta property="profile:first_name" content="${escapeHtml(site.shortName)}" />`,
     `<meta property="profile:last_name" content="${escapeHtml(familyName)}" />`,
-    `<meta name="twitter:card" content="summary" />`,
+    `<meta name="twitter:card" content="summary_large_image" />`,
+    `<meta name="twitter:image" content="${escapeHtml(image)}" />`,
     twitterHandle ? `<meta name="twitter:creator" content="${escapeHtml(twitterHandle)}" />` : '',
     `<script type="application/ld+json">\n${json}\n    </script>`,
   ].filter(Boolean);
+
+  const cardPng = () => {
+    const headshot = fileURLToPath(new URL('./public/headshot.jpg', import.meta.url));
+    const newsreader = fileURLToPath(new URL('./assets/fonts/Newsreader.ttf', import.meta.url));
+    const outfit = fileURLToPath(new URL('./assets/fonts/Outfit.ttf', import.meta.url));
+    const lines = wrapLines(site.summary, 42);
+    const summary = lines.map((line, index) => (
+      `<text x="688" y="${400 + index * 40}" fill="#171615" font-family="Outfit" font-size="26">${escapeHtml(line)}</text>`
+    )).join('\n');
+    const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f4f0"/>
+  <image href="${escapeHtml(headshot)}" x="0" y="0" width="630" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="630" width="8" height="630" fill="#9b3d32"/>
+  <text x="688" y="250" fill="#171615" font-family="Newsreader" font-size="64" font-weight="600">${escapeHtml(site.name)}</text>
+  <text x="688" y="312" fill="#5c5853" font-family="Outfit" font-size="28">${escapeHtml(site.role)}</text>
+  ${summary}
+</svg>`;
+    return new Resvg(svg, {
+      fitTo: { mode: 'width', value: 1200 },
+      font: {
+        fontFiles: [newsreader, outfit],
+        loadSystemFonts: false,
+      },
+    }).render().asPng();
+  };
 
   const sitemapXml = () => {
     const lastmod = new Date().toISOString().slice(0, 10);
@@ -106,13 +151,23 @@ function siteMeta() {
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        if (req.url?.split('?')[0] !== '/sitemap.xml') return next();
-        res.setHeader('Content-Type', 'application/xml');
-        res.end(sitemapXml());
+        const path = req.url?.split('?')[0];
+        if (path === '/sitemap.xml') {
+          res.setHeader('Content-Type', 'application/xml');
+          res.end(sitemapXml());
+          return;
+        }
+        if (path === '/og.png') {
+          res.setHeader('Content-Type', 'image/png');
+          res.end(cardPng());
+          return;
+        }
+        next();
       });
     },
     generateBundle() {
       this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: sitemapXml() });
+      this.emitFile({ type: 'asset', fileName: 'og.png', source: cardPng() });
     },
   };
 }
