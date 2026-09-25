@@ -19,7 +19,7 @@ Most copy lives in [`src/data/site.js`](src/data/site.js). Save the file and the
 
 - **Name, links, interests, news, education, papers, selected work, teaching:** [`src/data/site.js`](src/data/site.js)
 - **About:** [`src/components/Hero.jsx`](src/components/Hero.jsx)
-- **Colors and layout:** [`src/index.css`](src/index.css)
+- **Colors and layout:** [`src/index.css`](src/index.css). Dark colors follow the operating system. There is no toggle.
 - **Tab title, search description, link previews:** [`src/data/site.js`](src/data/site.js) (`description`, `summary`, `url`, `alumniOf`, `knowsAbout`, and the profile links). [`index.html`](index.html) only marks where Vite injects them.
 - **Photo:** see below
 - **Resume:** see below

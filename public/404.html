@@ -51,6 +51,16 @@
       a {
         color: var(--accent);
       }
+
+      @media (prefers-color-scheme: dark) {
+        :root {
+          color-scheme: dark;
+          --surface: #161412;
+          --text: #f3efe9;
+          --muted: #c4bbb2;
+          --accent: #d98978;
+        }
+      }
     </style>
   </head>
   <body>

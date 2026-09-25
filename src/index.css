@@ -49,6 +49,31 @@
   --z-skip: 60;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --surface: #161412;
+    --surface-2: #221f1c;
+    --text: #f3efe9;
+    --text-muted: #c4bbb2;
+    /* 4.5:1 on --surface at the small sizes it is used at. */
+    --text-faint: #a89f96;
+    --accent: #d98978;
+    --accent-soft: #3c2a26;
+    --line: rgba(243, 239, 233, 0.14);
+    --line-strong: rgba(243, 239, 233, 0.24);
+    --focus: #d98978;
+  }
+
+  .grain {
+    display: none;
+  }
+
+  ::selection {
+    color: var(--surface);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -59,6 +84,7 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: light;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -715,7 +741,7 @@ a.teach-code {
   align-items: center;
   gap: 0.95rem;
   padding: 0.62rem 1.15rem 0.62rem 1.05rem;
-  background: #fff;
+  background: var(--surface);
   box-shadow: inset 0 0 0 1px var(--line);
   border-radius: var(--radius-pill);
 }
