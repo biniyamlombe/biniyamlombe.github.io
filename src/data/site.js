@@ -29,7 +29,7 @@ export const site = {
   name: 'Biniyam Lombe',
   // Used to bold your name in publication author lists. Keep this as your first name.
   shortName: 'Biniyam',
-  role: 'CS MS @ Yale',
+  role: 'M.S. CS, Yale',
   degree: 'M.S. in Computer Science',
   school: 'Yale University',
   email: 'biniyam.lombe@yale.edu',
@@ -228,7 +228,7 @@ export const news = [
   {
     date: 'Aug 2026',
     parts: [
-      { text: 'Applying to CS PhD programs and SWE / ML roles. Happy to talk about trustworthy ML, privacy, and security.' },
+      { text: 'Applying to CS PhD programs for Fall 2027 and to SWE / ML roles. Happy to talk about trustworthy ML, privacy, and security.' },
     ],
     notes: [
       'Interests: language models, vision, differential privacy, and adversarial robustness.',

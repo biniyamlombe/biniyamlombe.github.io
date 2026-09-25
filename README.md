@@ -1,6 +1,6 @@
 # Biniyam Lombe
 
-Academic homepage for PhD and SWE / ML applications. CS MS at Yale.
+Academic homepage for PhD and SWE / ML applications. M.S. CS, Yale.
 
 **[Live site](https://biniyamlombe.github.io/)**
 

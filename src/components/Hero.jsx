@@ -13,10 +13,10 @@ const Hero = () => {
         <h2 id="about-heading">About</h2>
         <div className="prose">
           <p>
-            I am a computer scientist at <a href={site.schoolHref} target="_blank" rel="noopener noreferrer">{site.school}</a>, where I recently completed an {site.degree}. I work on machine learning that is capable and <em>trustworthy</em>: models that understand language and vision while protecting the people whose data trains them.
+            I am a computer scientist. I recently completed an {site.degree} at <a href={site.schoolHref} target="_blank" rel="noopener noreferrer">{site.school}</a>. I work on machine learning that is capable and <em>trustworthy</em>: models that understand language and vision while protecting the people whose data trains them.
           </p>
           <p>
-            I am applying to CS PhD programs for Fall 2026, and I am looking at software engineering and machine learning roles. The fastest way to reach me is by <a href={`mailto:${site.email}`}>email</a>.
+            I am applying to CS PhD programs for Fall 2027, and I am looking at software engineering and machine learning roles. The fastest way to reach me is by <a href={`mailto:${site.email}`}>email</a>.
           </p>
         </div>
       </Reveal>
