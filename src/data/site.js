@@ -161,9 +161,9 @@ export const projects = [
     ],
   },
   {
-    title: 'Evaluating Fairness and Bias in Facial Recognition',
+    title: 'Evaluating Fairness and Robustness of Facial Recognition Systems Under Realistic Image Degradations',
     blurb:
-      'For CPSC 5710, we benchmarked DeepFace models on LFW. We measured how blur, compression, noise, and brightness change verification accuracy and the gaps by race and gender.',
+      'We benchmarked DeepFace models on LFW. We measured how blur, compression, noise, and brightness change verification accuracy and the gaps by race and gender.',
     stack: ['DeepFace'],
     href: 'https://github.com/apurvagyan/fair-recognition',
     links: [
