@@ -29,7 +29,7 @@ const Teaching = () => {
                   <time dateTime={course.dateTime}>{course.term}</time>
                   {course.until && (
                     <>
-                      {' - '}
+                      {' to '}
                       <time dateTime={course.untilDateTime}>{course.until}</time>
                     </>
                   )}

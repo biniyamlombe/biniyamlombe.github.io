@@ -51,7 +51,7 @@ function siteMeta() {
   const pageUrl = `${origin}/`;
   const image = `${origin}/og.png`;
   const portrait = `${origin}/headshot.jpg`;
-  const title = `${site.name} — ${site.role}`;
+  const title = `${site.name}, ${site.role}`;
   const familyName = site.name.startsWith(`${site.shortName} `)
     ? site.name.slice(site.shortName.length).trim()
     : site.name;
