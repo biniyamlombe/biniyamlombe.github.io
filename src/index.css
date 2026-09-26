@@ -8,7 +8,7 @@
  *   .page / .rail / .content   two-column shell
  *   .headshot                  photo box
  *   .about / .section          right-column sections
- *   .news-feed / .pub-list / .work-list / .teach-list     lists
+ *   .news-feed / .pub-list / .work-list / .teach-list / .service-list     lists
  *   .colophon                  footer pill (white)
  *
  * After adding a new section in App.jsx, add a class here rather than inline styles.
@@ -489,6 +489,7 @@ input {
   .section,
   .teach-list > li,
   .ed-list > li,
+  .service-list > li,
   .news-feed > li,
   .pub-list > li,
   .work-list > li {
@@ -543,7 +544,8 @@ input {
 .pub-list a,
 .work-list a,
 .teach-list a,
-.ed-list a {
+.ed-list a,
+.service-list a {
   color: var(--accent);
   background-image: linear-gradient(currentColor, currentColor);
   background-size: 100% 1px;
@@ -556,7 +558,8 @@ input {
 .pub-list a:hover,
 .work-list a:hover,
 .teach-list a:hover,
-.ed-list a:hover {
+.ed-list a:hover,
+.service-list a:hover {
   color: var(--text);
 }
 
@@ -776,13 +779,15 @@ a.teach-code {
   }
 }
 
-.ed-list {
+.ed-list,
+.service-list {
   list-style: none;
   border-top: 1px solid var(--line);
   max-width: var(--measure);
 }
 
-.ed-list > li {
+.ed-list > li,
+.service-list > li {
   display: grid;
   grid-template-columns: 7.5rem minmax(11rem, 16rem) minmax(0, 1fr);
   gap: 0.35rem 1rem;
@@ -791,7 +796,8 @@ a.teach-code {
   border-bottom: 1px solid var(--line);
 }
 
-.ed-list time {
+.ed-list time,
+.service-list time {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.8rem;
@@ -802,24 +808,32 @@ a.teach-code {
   padding-top: 0.12rem;
 }
 
-.ed-list a {
+.ed-list a,
+.service-list a {
   justify-self: start;
   width: fit-content;
 }
 
 .ed-list a,
-.ed-list li > span:not(.ed-degree) {
+.service-list a,
+.ed-list li > span:not(.ed-degree),
+.service-list li > span:not(.service-role) {
   font-size: 1.04rem;
   font-weight: 500;
   letter-spacing: -0.018em;
   line-height: 1.45;
 }
 
-.ed-degree {
+.ed-degree,
+.service-role {
   min-width: 0;
   font-size: 1.04rem;
   line-height: 1.45;
   text-wrap: pretty;
+}
+
+.service-list > li {
+  grid-template-columns: 7.5rem max-content minmax(0, 1fr);
 }
 
 .ed-detail {
@@ -833,7 +847,8 @@ a.teach-code {
 }
 
 @media (max-width: 699px) {
-  .ed-list > li {
+  .ed-list > li,
+  .service-list > li {
     grid-template-columns: 1fr;
     gap: 0.15rem;
   }

@@ -400,3 +400,28 @@ export const news = [
     ],
   },
 ];
+
+/**
+ * SERVICE
+ *
+ * Reviewing and other professional service. Newest first.
+ * An empty array omits the section.
+ * Do not put a submission number here. It can identify a paper still under review.
+ *
+ * {
+ *   venue: 'NeurIPS',
+ *   date: '2026',
+ *   dateTime: '2026',
+ *   role: 'Ethics reviewer for the Evaluations and Datasets track',
+ *   href: 'https://neurips.cc/',
+ * }
+ */
+export const service = [
+  {
+    venue: 'NeurIPS',
+    date: '2026',
+    dateTime: '2026',
+    role: 'Ethics reviewer for the Evaluations and Datasets track',
+    href: 'https://neurips.cc/',
+  },
+];

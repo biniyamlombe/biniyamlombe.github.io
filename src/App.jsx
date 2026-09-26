@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import Research from './components/Research';
 import Projects from './components/Projects';
 import Teaching from './components/Teaching';
+import Service from './components/Service';
 import Publications from './components/Publications';
 import News from './components/News';
 import Education from './components/Education';
@@ -11,7 +12,7 @@ import ThemeSwitch from './components/ThemeSwitch';
 
 /**
  * Page shell. Section order on the page is the order of components below:
- * About → News → Education → Interests → Selected work → Publications → Teaching.
+ * About → News → Education → Interests → Selected work → Publications → Teaching → Service.
  *
  * Selected work and Publications render only when their arrays in site.js
  * are non-empty. An empty list shows nothing, same as Teaching.
@@ -37,6 +38,7 @@ function App() {
           <Projects />
           <Publications />
           <Teaching />
+          <Service />
         </div>
       </div>
       <Footer />
