@@ -160,6 +160,16 @@ export const projects = [
       { label: 'Code', href: 'https://github.com/biniyamlombe/BABEL' },
     ],
   },
+  {
+    title: 'Evaluating Fairness and Bias in Facial Recognition',
+    blurb:
+      'With Jonathan Chen and Apurva Mishra, for CPSC 5710, we benchmarked DeepFace models on LFW. We measured how blur, compression, noise, and brightness change verification accuracy and the gaps by race and gender.',
+    stack: ['DeepFace'],
+    href: 'https://github.com/apurvagyan/fair-recognition',
+    links: [
+      { label: 'Code', href: 'https://github.com/apurvagyan/fair-recognition' },
+    ],
+  },
 ];
 
 /**
