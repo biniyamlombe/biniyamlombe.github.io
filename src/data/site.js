@@ -170,6 +170,16 @@ export const projects = [
       { label: 'Code', href: 'https://github.com/apurvagyan/fair-recognition' },
     ],
   },
+  {
+    title: 'Adaptive Multimodal Integration for Spatial Transcriptomics',
+    blurb:
+      'AMIST integrates gene expression and H&E histology for spatial transcriptomics. We align the two with contrastive learning, then fine tune a masked graph autoencoder so the model can identify spatial niches in tissue.',
+    stack: ['PyTorch'],
+    href: 'https://github.com/biniyamlombe/AMIST',
+    links: [
+      { label: 'Code', href: 'https://github.com/biniyamlombe/AMIST' },
+    ],
+  },
 ];
 
 /**
