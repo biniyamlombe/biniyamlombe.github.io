@@ -359,4 +359,13 @@ export const news = [
       'First Class Honours.',
     ],
   },
+  {
+    date: 'Jun 2020',
+    dateTime: '2020-06',
+    parts: [
+      { text: 'Named a finalist for the FACE Pius Adesanmi Memorial Student Award at ' },
+      { text: 'FACE 2020', href: 'https://folukeafrica.com/face-2020-forever-africa-online/biniyam-lombe/' },
+      { text: '.' },
+    ],
+  },
 ];
