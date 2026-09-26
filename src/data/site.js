@@ -149,7 +149,18 @@ export const education = [
  *   ],
  * }
  */
-export const projects = [];
+export const projects = [
+  {
+    title: 'Beyond Chinchilla: Scaling Laws Break Down for Truly Low-Resource Languages',
+    blurb:
+      'With BABEL we trained language models from scratch for Amharic, Yiddish, and Tibetan. We fit a scaling law in the Chinchilla form on a grid of 75 runs for each language and corpus, and compared those models with Qwen2.5 after fine tuning.',
+    stack: ['PyTorch'],
+    href: 'https://github.com/biniyamlombe/BABEL',
+    links: [
+      { label: 'Code', href: 'https://github.com/biniyamlombe/BABEL' },
+    ],
+  },
+];
 
 /**
  * TEACHING
