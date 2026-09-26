@@ -171,7 +171,7 @@ export const projects = [
     ],
   },
   {
-    title: 'Adaptive Multimodal Integration for Spatial Transcriptomics',
+    title: 'AMIST: Adaptive Multimodal Integration for Spatial Domain Identification in Spatial Transcriptomics',
     blurb:
       'AMIST integrates gene expression and H&E histology for spatial transcriptomics. We align the two with contrastive learning, then fine tune a masked graph autoencoder so the model can identify spatial niches in tissue.',
     stack: ['PyTorch'],
