@@ -426,8 +426,8 @@ export const service = [
   },
   {
     venue: 'ICML',
-    date: '2026',
-    dateTime: '2026',
+    date: 'May 2026',
+    dateTime: '2026-05',
     role: 'Reviewer for the Epistemic Intelligence in Machine Learning workshop',
     href: 'https://icml.cc/virtual/2026/workshop/54075',
   },
