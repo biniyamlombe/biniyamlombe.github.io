@@ -190,8 +190,8 @@ export const teaching = [
   {
     code: 'AddisCoder',
     title: 'Programming and Algorithms',
-    term: 'Summer 2025',
-    dateTime: '2025-06',
+    term: 'Jul 2025',
+    dateTime: '2025-07',
     role: 'Head TA',
     href: 'https://www.addiscoder.com/',
   },
@@ -327,6 +327,15 @@ export const news = [
       { text: ' about ' },
       { text: 'AddisCoder', href: 'https://www.addiscoder.com/' },
       { text: ', mentorship, and education access in Ethiopia.' },
+    ],
+  },
+  {
+    date: 'Jul 2025',
+    dateTime: '2025-07',
+    parts: [
+      { text: 'Head TA for ' },
+      { text: 'AddisCoder', href: 'https://www.addiscoder.com/' },
+      { text: ', after teaching the same summer program in 2024 and 2023.' },
     ],
   },
   {
