@@ -339,6 +339,15 @@ export const news = [
     ],
   },
   {
+    date: 'Feb 2024',
+    dateTime: '2024-02',
+    parts: [
+      { text: 'Received a $10,000 ' },
+      { text: 'McCall MacBain Regional Award', href: 'https://mccallmacbainscholars.org/2024-finalists/' },
+      { text: '.' },
+    ],
+  },
+  {
     date: 'Jun 2022',
     dateTime: '2022-06',
     parts: [
