@@ -35,7 +35,7 @@ npm run headshot                    # rebuilds from originals/headshot-full.jpg
 npm run headshot -- ~/some/pic.jpg  # or from anywhere else
 ```
 
-That writes `public/headshot.webp` and `public/headshot.jpg`, both 640×640. Never drop a camera-sized JPEG straight into `public/`: at 2–3 MB it outweighs the entire rest of the page. Needs `brew install webp` for the WebP half; without it the JPEG still works everywhere.
+That writes `public/headshot.webp` and `public/headshot.jpg`, both 640×640, and `public/favicon.png` for the browser tab. Never drop a camera-sized JPEG straight into `public/`: at 2–3 MB it outweighs the entire rest of the page. Needs `brew install webp` for the WebP half; without it the JPEG still works everywhere.
 
 ### Resume
 

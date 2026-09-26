@@ -9,8 +9,8 @@
  * PROFILE PHOTO
  *   Put the full-resolution photo at:  originals/headshot-full.jpg
  *   Then run:  npm run headshot
- *   That writes the two files the page actually serves, public/headshot.webp
- *   and public/headshot.jpg, cropped square and sized for the rail. Do not put
+ *   That writes the files the page actually serves, public/headshot.webp,
+ *   public/headshot.jpg, and public/favicon.png, cropped square. Do not put
  *   a camera-sized JPEG in public/ directly; it is the whole page weight.
  *
  * RESUME / CV

@@ -6,8 +6,9 @@
 #   npm run headshot -- ~/Desktop/me.jpg      # uses any other file
 #
 # Writes public/headshot.webp and public/headshot.jpg, both square and 640x640,
-# which is 2x the 264px the left rail draws. A camera JPEG is normally 2-3 MB;
-# these come out around 25 KB and 75 KB.
+# which is 2x the 264px the left rail draws, plus public/favicon.png at 192x192
+# for the browser tab. A camera JPEG is normally 2-3 MB; the page files come
+# out around 25 KB and 75 KB.
 #
 # The source is centre-cropped to a square, which is exactly the crop the CSS
 # (object-fit: cover) was applying anyway. If your face sits off-centre, crop
@@ -43,6 +44,9 @@ sips -c "$EDGE" "$EDGE" "$SOURCE" --out "$WORK/square.jpg" >/dev/null
 sips -Z "$SIZE" "$WORK/square.jpg" -s format jpeg -s formatOptions 80 \
   --out public/headshot.jpg >/dev/null
 echo "public/headshot.jpg   $(du -h public/headshot.jpg | cut -f1)"
+
+sips -Z 192 "$WORK/square.jpg" -s format png --out public/favicon.png >/dev/null
+echo "public/favicon.png    $(du -h public/favicon.png | cut -f1)"
 
 if command -v cwebp >/dev/null 2>&1; then
   cwebp -quiet -q 80 -resize "$SIZE" "$SIZE" "$WORK/square.jpg" -o public/headshot.webp
