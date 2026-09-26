@@ -424,4 +424,11 @@ export const service = [
     role: 'Ethics reviewer for the Evaluations and Datasets track',
     href: 'https://neurips.cc/',
   },
+  {
+    venue: 'ICML',
+    date: '2026',
+    dateTime: '2026',
+    role: 'Reviewer for the Epistemic Intelligence in Machine Learning workshop',
+    href: 'https://icml.cc/virtual/2026/workshop/54075',
+  },
 ];
