@@ -419,8 +419,8 @@ export const news = [
 export const service = [
   {
     venue: 'NeurIPS',
-    date: '2026',
-    dateTime: '2026',
+    date: 'Aug 2026',
+    dateTime: '2026-08',
     role: 'Ethics reviewer for the Evaluations and Datasets track',
     href: 'https://neurips.cc/',
   },
