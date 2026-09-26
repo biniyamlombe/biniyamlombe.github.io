@@ -431,4 +431,11 @@ export const service = [
     role: 'Reviewer for the Epistemic Intelligence in Machine Learning workshop',
     href: 'https://icml.cc/virtual/2026/workshop/54075',
   },
+  {
+    venue: 'ACL',
+    date: '2026',
+    dateTime: '2026',
+    role: 'Reviewer for the DravidianLangTech workshop',
+    href: 'https://www.aclweb.org/portal/content/sixth-workshop-speech-and-language-technologies-dravidian-languages-acl-2026',
+  },
 ];
