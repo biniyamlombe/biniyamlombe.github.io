@@ -440,8 +440,8 @@ export const service = [
   },
   {
     venue: 'YURC',
-    date: '2026',
-    dateTime: '2026',
+    date: 'Feb 2026',
+    dateTime: '2026-02',
     role: 'Judge in the Mathematics and Engineering category',
     href: 'https://www.yura.yale.edu/yurc',
   },
