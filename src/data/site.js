@@ -433,8 +433,8 @@ export const service = [
   },
   {
     venue: 'ACL',
-    date: '2026',
-    dateTime: '2026',
+    date: 'Apr 2026',
+    dateTime: '2026-04',
     role: 'Reviewer for the DravidianLangTech workshop',
     href: 'https://www.aclweb.org/portal/content/sixth-workshop-speech-and-language-technologies-dravidian-languages-acl-2026',
   },
