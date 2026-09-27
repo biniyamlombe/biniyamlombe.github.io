@@ -370,6 +370,17 @@ export const news = [
     ],
   },
   {
+    date: 'Apr 2024',
+    dateTime: '2024-04',
+    parts: [
+      { text: 'Received a $50,000 ' },
+      { text: 'Wade Scholarship', href: 'https://wadescholarship.org/' },
+      { text: ' to support my M.S. at ' },
+      { text: 'Yale', href: 'https://www.cs.yale.edu/' },
+      { text: '.' },
+    ],
+  },
+  {
     date: 'Feb 2024',
     dateTime: '2024-02',
     parts: [
