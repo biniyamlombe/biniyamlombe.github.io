@@ -779,15 +779,13 @@ a.teach-code {
   }
 }
 
-.ed-list,
-.service-list {
+.ed-list {
   list-style: none;
   border-top: 1px solid var(--line);
   max-width: var(--measure);
 }
 
-.ed-list > li,
-.service-list > li {
+.ed-list > li {
   display: grid;
   grid-template-columns: 7.5rem minmax(11rem, 16rem) minmax(0, 1fr);
   gap: 0.35rem 1rem;
@@ -796,8 +794,7 @@ a.teach-code {
   border-bottom: 1px solid var(--line);
 }
 
-.ed-list time,
-.service-list time {
+.ed-list time {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.8rem;
@@ -808,32 +805,42 @@ a.teach-code {
   padding-top: 0.12rem;
 }
 
-.ed-list a,
-.service-list a {
+.ed-list a {
   justify-self: start;
   width: fit-content;
 }
 
 .ed-list a,
-.service-list a,
-.ed-list li > span:not(.ed-degree),
-.service-list li > span:not(.service-role) {
+.ed-list li > span:not(.ed-degree) {
   font-size: 1.04rem;
   font-weight: 500;
   letter-spacing: -0.018em;
   line-height: 1.45;
 }
 
-.ed-degree,
-.service-role {
+.ed-degree {
   min-width: 0;
   font-size: 1.04rem;
   line-height: 1.45;
   text-wrap: pretty;
 }
 
-.service-list > li {
-  grid-template-columns: 7.5rem max-content minmax(0, 1fr);
+.service-list {
+  list-style: disc;
+  margin: 0.15rem 0 0 1.2rem;
+  display: grid;
+  gap: 0.55rem;
+  max-width: var(--measure);
+  font-size: 1.04rem;
+  line-height: 1.5;
+}
+
+.service-list time {
+  color: var(--accent);
+  font-family: var(--sans);
+  font-size: 0.86rem;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
 }
 
 .ed-detail {
@@ -847,8 +854,7 @@ a.teach-code {
 }
 
 @media (max-width: 699px) {
-  .ed-list > li,
-  .service-list > li {
+  .ed-list > li {
     grid-template-columns: 1fr;
     gap: 0.15rem;
   }
