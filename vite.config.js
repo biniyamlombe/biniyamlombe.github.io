@@ -56,7 +56,7 @@ function siteMeta() {
     ? site.name.slice(site.shortName.length).trim()
     : site.name;
   const sameAs = site.contacts
-    .filter((item) => item.href.startsWith('http') && item.icon !== 'map')
+    .filter((item) => item.href.startsWith('http') && item.icon !== 'map' && item.icon !== 'coffee')
     .map((item) => item.href);
   const twitter = site.contacts.find((item) => item.icon === 'twitter');
   const twitterHandle = twitter

@@ -1,4 +1,4 @@
-import { FileText, Github, GraduationCap, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
+import { Coffee, FileText, Github, GraduationCap, Linkedin, Mail, MapPin, Twitter } from 'lucide-react';
 import { publicFile, site } from '../data/site';
 
 /**
@@ -20,6 +20,7 @@ import { publicFile, site } from '../data/site';
 const icons = {
   map: MapPin,
   mail: Mail,
+  coffee: Coffee,
   scholar: GraduationCap,
   github: Github,
   linkedin: Linkedin,

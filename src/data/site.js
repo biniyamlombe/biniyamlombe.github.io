@@ -59,7 +59,7 @@ export const site = {
   ],
   /**
    * Left-rail links. Add a row by copying an object below.
-   * icon must be one of: map, mail, scholar, github, linkedin, twitter, cv
+   * icon must be one of: map, mail, coffee, scholar, github, linkedin, twitter, cv
    * (To support a new icon name, also add it to the `icons` map in Sidebar.jsx.)
    *
    * Resume/CV: set CV_FILE in vite.config.js. The row below is added only
@@ -68,6 +68,7 @@ export const site = {
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },
     { name: 'biniyam.lombe@yale.edu', href: 'mailto:biniyam.lombe@yale.edu', icon: 'mail' },
+    { name: 'Coffee chat', href: 'https://cal.com/biniyam-lombe/30min', icon: 'coffee' },
     // Name search, not a citations?user= profile. Replace this href if you create a profile.
     { name: 'Google Scholar', href: 'https://scholar.google.com/scholar?q=Biniyam+Lombe', icon: 'scholar' },
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
