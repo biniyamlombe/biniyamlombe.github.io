@@ -577,6 +577,19 @@ input {
   line-height: 1.55;
 }
 
+/* The ICML sentence is wider than the news measure. Let Service use the column,
+   and step the type down only while that column is still a little short of the line. */
+.service-list {
+  max-width: none;
+  container-type: inline-size;
+}
+
+@container (max-width: 42rem) {
+  .service-list > li > p {
+    font-size: 1.02rem;
+  }
+}
+
 .news-feed > li > p,
 .service-list > li > p {
   text-wrap: pretty;
