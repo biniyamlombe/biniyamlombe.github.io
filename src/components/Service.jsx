@@ -15,17 +15,17 @@ const Service = () => {
         <ul className="service-list">
           {service.map((item) => (
             <li key={`${item.venue}-${item.dateTime}-${item.role}`}>
-              <time dateTime={item.dateTime}>{item.date}</time>
-              {' '}
-              {item.href ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer">
-                  {item.venue}
-                </a>
-              ) : (
-                <span>{item.venue}</span>
-              )}
-              {' '}
-              {item.role}
+              <span className="service-head">
+                <time dateTime={item.dateTime}>{item.date}</time>
+                {item.href ? (
+                  <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    {item.venue}
+                  </a>
+                ) : (
+                  <span>{item.venue}</span>
+                )}
+              </span>
+              <span className="service-role">{item.role}</span>
             </li>
           ))}
         </ul>
