@@ -567,7 +567,8 @@ input {
   margin-top: 2.15rem;
 }
 
-.news-feed {
+.news-feed,
+.service-list {
   list-style: none;
   display: grid;
   gap: 0.85rem;
@@ -576,11 +577,13 @@ input {
   line-height: 1.55;
 }
 
-.news-feed > li > p {
+.news-feed > li > p,
+.service-list > li > p {
   text-wrap: pretty;
 }
 
-.news-feed time {
+.news-feed time,
+.service-list time {
   color: var(--accent);
   font-family: var(--sans);
   font-size: 0.86rem;
@@ -825,55 +828,6 @@ a.teach-code {
   text-wrap: pretty;
 }
 
-.service-list {
-  list-style: disc;
-  margin: 0.4rem 0 0 1.15rem;
-  padding: 0;
-  display: grid;
-  gap: 0.95rem;
-  max-width: var(--measure);
-}
-
-.service-list > li::marker {
-  color: var(--accent);
-}
-
-.service-head {
-  display: flex;
-  align-items: baseline;
-  gap: 0.7rem;
-}
-
-.service-list time {
-  flex: 0 0 4.75rem;
-  color: var(--accent);
-  font-family: var(--sans);
-  font-size: 0.78rem;
-  font-weight: 650;
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
-}
-
-.service-list a,
-.service-head > span {
-  font-family: var(--display);
-  font-size: 1.16rem;
-  font-weight: 560;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
-  width: fit-content;
-}
-
-.service-role {
-  display: block;
-  margin-top: 0.16rem;
-  margin-left: calc(4.75rem + 0.7rem);
-  color: var(--text-muted);
-  font-size: 0.98rem;
-  line-height: 1.45;
-  text-wrap: pretty;
-  max-width: 62ch;
-}
 
 .ed-detail {
   display: block;
