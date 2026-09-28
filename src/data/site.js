@@ -68,7 +68,7 @@ export const site = {
   contacts: [
     { name: 'New Haven, CT', href: 'https://maps.app.goo.gl/WSAzsdBWbeH9uUxF9', icon: 'map' },
     { name: 'biniyam.lombe@yale.edu', href: 'mailto:biniyam.lombe@yale.edu', icon: 'mail' },
-    { name: 'Coffee chat', href: 'https://cal.com/biniyam-lombe/30min', icon: 'coffee' },
+    { name: 'Coffee chat', href: 'https://cal.com/biniyam-lombe', icon: 'coffee' },
     // Name search, not a citations?user= profile. Replace this href if you create a profile.
     { name: 'Google Scholar', href: 'https://scholar.google.com/scholar?q=Biniyam+Lombe', icon: 'scholar' },
     { name: 'GitHub', href: 'https://github.com/biniyamlombe', icon: 'github' },
