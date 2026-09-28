@@ -253,7 +253,7 @@ export const teaching = [
   {
     code: 'UWE Bristol',
     titles: [
-      'Principles of Electrical Engineering',
+      'Principles of Electrical and Electronic Engineering',
       'Fluid Mechanics',
       'Foundation Physics',
       'Foundation Mathematics',
